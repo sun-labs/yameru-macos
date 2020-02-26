@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import AVFoundation
 
 class ViewController: NSViewController {
     @IBOutlet weak var BatteryStatusLabel: NSTextField!
@@ -16,6 +17,7 @@ class ViewController: NSViewController {
     
     var battery: batteryStatus!
     var timer: Timer!
+    var soundPlayer: AVAudioPlayer!
     var updateCounter = 0
     var isLocked = false
     
@@ -30,20 +32,46 @@ class ViewController: NSViewController {
         fireTimer()
     }
     
+    func soundTheAlarm () {
+        self.soundPlayer.play()
+    }
+    
     @objc func fireTimer () {
+        if (isLocked) {
+            safetyRoutine()
+        }
         updateUI()
     }
     
     func toggleLock () {
+        let url = Bundle.main.url(forResource: "anime-scream", withExtension: "mp3")!
+        do {
+            self.soundPlayer = try AVAudioPlayer(contentsOf: url)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        self.soundPlayer.prepareToPlay()
         isLocked = !isLocked
     }
     @IBAction func lockButtonClick(_ sender: Any) {
         toggleLock()
     }
     
+    func isConnected () -> Bool {
+        return battery.isCharging()
+    }
+    
+    func safetyRoutine () {
+        if (!isConnected()) {
+            self.soundPlayer.play()
+        } else {
+            self.soundPlayer.stop()
+        }
+    }
+    
     func updateUI () {
         updateCounter += 1
-        let isCharging = battery.isCharging()
+        let isCharging = isConnected()
         lockButton.isEnabled = isCharging
         if (isLocked) {
             lockButton.title = "Unlock Device"

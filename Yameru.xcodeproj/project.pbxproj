@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C47D43F2406753E00818F19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47D43E2406753E00818F19 /* ViewController.swift */; };
+		3C47D44124068A0300818F19 /* anime-scream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C47D44024068A0300818F19 /* anime-scream.mp3 */; };
 		A82EED4D2405309C00C28684 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EED4C2405309C00C28684 /* AppDelegate.swift */; };
 		A82EED4F2405309C00C28684 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EED4E2405309C00C28684 /* ContentView.swift */; };
 		A82EED512405309E00C28684 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82EED502405309E00C28684 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		3C47D43E2406753E00818F19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3C47D44024068A0300818F19 /* anime-scream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "anime-scream.mp3"; sourceTree = "<group>"; };
 		A82EED492405309C00C28684 /* Yameru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yameru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82EED4C2405309C00C28684 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A82EED4E2405309C00C28684 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		A82EED4B2405309C00C28684 /* Yameru */ = {
 			isa = PBXGroup;
 			children = (
+				3C47D44024068A0300818F19 /* anime-scream.mp3 */,
 				A82EED4C2405309C00C28684 /* AppDelegate.swift */,
 				A82EED4E2405309C00C28684 /* ContentView.swift */,
 				A82EED502405309E00C28684 /* Assets.xcassets */,
@@ -245,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C47D44124068A0300818F19 /* anime-scream.mp3 in Resources */,
 				A82EED572405309E00C28684 /* Main.storyboard in Resources */,
 				A82EED542405309E00C28684 /* Preview Assets.xcassets in Resources */,
 				A82EED512405309E00C28684 /* Assets.xcassets in Resources */,
