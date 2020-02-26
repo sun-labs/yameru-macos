@@ -26,6 +26,10 @@ class ViewController: NSViewController {
         self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
     }
     
+    override func viewDidLoad() {
+        fireTimer()
+    }
+    
     @objc func fireTimer () {
         updateUI()
     }
@@ -40,16 +44,13 @@ class ViewController: NSViewController {
     func updateUI () {
         updateCounter += 1
         let isCharging = battery.isCharging()
+        lockButton.isEnabled = isCharging
         if (isLocked) {
             lockButton.title = "Unlock Device"
-            lockLabel.stringValue = isCharging
-                ? "🔒"
-                : "🚨"
+            lockLabel.stringValue = isCharging ? "🔒" : "🚨"
         } else {
             lockButton.title = "Lock Device"
-            lockLabel.stringValue = isCharging
-                ? "⚡︎"
-                : "🔋"
+            lockLabel.stringValue = isCharging ? "🔌" : "🔋"
         }
         BatteryStatusLabel.stringValue = "\(isCharging) (\(updateCounter))"
         
