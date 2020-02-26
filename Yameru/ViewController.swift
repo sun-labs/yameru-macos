@@ -11,6 +11,7 @@ import Cocoa
 
 class ViewController: NSViewController {
     @IBOutlet weak var BatteryStatusLabel: NSTextField!
+    @IBOutlet weak var lockLabel: NSTextField!
     var battery: batteryStatus!
     var timer: Timer!
     var updateCounter = 0
@@ -28,6 +29,7 @@ class ViewController: NSViewController {
     func updateUI () {
         updateCounter += 1
         let isCharging = battery.isCharging()
+        lockLabel.stringValue = isCharging ? "🔒" : "🔓"
         BatteryStatusLabel.stringValue = "\(isCharging) (\(updateCounter))"
         
     }

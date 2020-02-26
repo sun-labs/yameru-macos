@@ -386,16 +386,16 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-0r-31O">
-                                <rect key="frame" x="171" y="139" width="138" height="16"/>
+                                <rect key="frame" x="171" y="234" width="138" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Charging Status" id="5Jy-zx-GO7">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Currently Charging" id="5Jy-zx-GO7">
                                     <font key="font" metaFont="systemSemibold" size="13"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mS9-hT-yDl">
-                                <rect key="frame" x="170" y="115" width="141" height="16"/>
+                                <rect key="frame" x="170" y="210" width="141" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Waiting for status" id="V79-aD-BwS">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -406,10 +406,20 @@
                                     <outlet property="delegate" destination="BzT-5W-QSj" id="aVS-oY-EDY"/>
                                 </connections>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YRj-Ot-ELw">
+                                <rect key="frame" x="186" y="69" width="109" height="94"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="🔒" id="XY9-nd-kkb">
+                                    <font key="font" size="64" name=".AppleColorEmojiUI"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="BatteryStatusLabel" destination="mS9-hT-yDl" id="bke-6C-xa0"/>
+                        <outlet property="lockLabel" destination="YRj-Ot-ELw" id="qYN-7a-Wfw"/>
                     </connections>
                 </viewController>
                 <customObject id="pio-vL-uTT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
