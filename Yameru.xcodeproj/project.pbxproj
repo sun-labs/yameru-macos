@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C47D43F2406753E00818F19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47D43E2406753E00818F19 /* ViewController.swift */; };
 		A82EED4D2405309C00C28684 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EED4C2405309C00C28684 /* AppDelegate.swift */; };
 		A82EED4F2405309C00C28684 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EED4E2405309C00C28684 /* ContentView.swift */; };
 		A82EED512405309E00C28684 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82EED502405309E00C28684 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C47D43E2406753E00818F19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A82EED492405309C00C28684 /* Yameru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yameru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82EED4C2405309C00C28684 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A82EED4E2405309C00C28684 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				A82EED4E2405309C00C28684 /* ContentView.swift */,
 				A82EED502405309E00C28684 /* Assets.xcassets */,
 				A82EED552405309E00C28684 /* Main.storyboard */,
+				3C47D43E2406753E00818F19 /* ViewController.swift */,
 				A82EED582405309E00C28684 /* Info.plist */,
 				A82EED592405309E00C28684 /* Yameru.entitlements */,
 				A82EED522405309E00C28684 /* Preview Content */,
@@ -271,6 +274,7 @@
 			files = (
 				A82EED7C24054B3800C28684 /* batteryStatus.swift in Sources */,
 				A82EED4F2405309C00C28684 /* ContentView.swift in Sources */,
+				3C47D43F2406753E00818F19 /* ViewController.swift in Sources */,
 				A82EED4D2405309C00C28684 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,7 +449,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = sun.Yameru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -466,7 +470,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = sun.Yameru;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
