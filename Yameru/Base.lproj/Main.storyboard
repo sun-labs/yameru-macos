@@ -415,10 +415,22 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lt2-MA-kIl">
+                                <rect key="frame" x="184" y="13" width="114" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Lock Device" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OUE-dF-nN8">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="lockButtonClick:" target="BzT-5W-QSj" id="p3g-LR-2Kx"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="BatteryStatusLabel" destination="mS9-hT-yDl" id="bke-6C-xa0"/>
+                        <outlet property="lockButton" destination="lt2-MA-kIl" id="NqS-bI-oeV"/>
                         <outlet property="lockLabel" destination="YRj-Ot-ELw" id="qYN-7a-Wfw"/>
                     </connections>
                 </viewController>

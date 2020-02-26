@@ -12,24 +12,45 @@ import Cocoa
 class ViewController: NSViewController {
     @IBOutlet weak var BatteryStatusLabel: NSTextField!
     @IBOutlet weak var lockLabel: NSTextField!
+    @IBOutlet weak var lockButton: NSButton!
+    
     var battery: batteryStatus!
     var timer: Timer!
     var updateCounter = 0
+    var isLocked = false
+    
     
     required init?(coder aCoder: NSCoder) {
         super.init(coder: aCoder)
         self.battery = batteryStatus()
-        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
     }
     
     @objc func fireTimer () {
         updateUI()
     }
     
+    func toggleLock () {
+        isLocked = !isLocked
+    }
+    @IBAction func lockButtonClick(_ sender: Any) {
+        toggleLock()
+    }
+    
     func updateUI () {
         updateCounter += 1
         let isCharging = battery.isCharging()
-        lockLabel.stringValue = isCharging ? "🔒" : "🔓"
+        if (isLocked) {
+            lockButton.title = "Unlock Device"
+            lockLabel.stringValue = isCharging
+                ? "🔒"
+                : "🚨"
+        } else {
+            lockButton.title = "Lock Device"
+            lockLabel.stringValue = isCharging
+                ? "⚡︎"
+                : "🔋"
+        }
         BatteryStatusLabel.stringValue = "\(isCharging) (\(updateCounter))"
         
     }
