@@ -15,9 +15,8 @@ import IOKit.ps
 
 class batteryStatus {
     
-    func BatteryStatus() -> Int {
+    func isCharging() -> Bool {
         // Take a snapshot of all the power source info
-        var Charging = 0
         let snapshot = IOPSCopyPowerSourcesInfo().takeRetainedValue()
         // Pull out a list of power sources
         let sources = IOPSCopyPowerSourcesList(snapshot).takeRetainedValue() as Array
@@ -29,14 +28,9 @@ class batteryStatus {
             // Pull out the name and status
             if let _ = info[kIOPSNameKey] as? String,
                 let ChargingState = info[kIOPSPowerSourceStateKey] as? String{
-                print("\(ChargingState)")
-                if ChargingState.contains("Battery") {
-                    Charging = 0
-                } else {
-                    Charging = 1
-                }
+                return !ChargingState.contains("Battery")
             }
         }
-        return Charging
+        return false
     }
 }

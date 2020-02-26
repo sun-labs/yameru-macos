@@ -27,7 +27,8 @@ class ViewController: NSViewController {
     
     func updateUI () {
         updateCounter += 1
-        BatteryStatusLabel.stringValue = "\(battery.BatteryStatus()) (\(updateCounter))"
+        let isCharging = battery.isCharging()
+        BatteryStatusLabel.stringValue = "\(isCharging) (\(updateCounter))"
         
     }
 }
