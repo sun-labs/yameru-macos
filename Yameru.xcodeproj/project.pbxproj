@@ -10,8 +10,8 @@
 		3C47D43F2406753E00818F19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47D43E2406753E00818F19 /* ViewController.swift */; };
 		3C47D44124068A0300818F19 /* anime-scream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C47D44024068A0300818F19 /* anime-scream.mp3 */; };
 		3C56DABB240D14A000DA272C /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 3C56DABA240D14A000DA272C /* Preferences */; };
-		3C56DABD240D199B00DA272C /* SettingsGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C56DABC240D199B00DA272C /* SettingsGeneralViewController.swift */; };
-		3C56DABF240D1D3A00DA272C /* SettingsGeneral.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C56DABE240D1D3A00DA272C /* SettingsGeneral.xib */; };
+		3C749EAC240D71E500E1FA9A /* PrefGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C749EAB240D71E500E1FA9A /* PrefGeneralView.xib */; };
+		3C749EAE240D720500E1FA9A /* PrefGeneralVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C749EAD240D720500E1FA9A /* PrefGeneralVC.swift */; };
 		A82EED4D2405309C00C28684 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EED4C2405309C00C28684 /* AppDelegate.swift */; };
 		A82EED4F2405309C00C28684 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EED4E2405309C00C28684 /* ContentView.swift */; };
 		A82EED512405309E00C28684 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82EED502405309E00C28684 /* Assets.xcassets */; };
@@ -42,8 +42,8 @@
 /* Begin PBXFileReference section */
 		3C47D43E2406753E00818F19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3C47D44024068A0300818F19 /* anime-scream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "anime-scream.mp3"; sourceTree = "<group>"; };
-		3C56DABC240D199B00DA272C /* SettingsGeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGeneralViewController.swift; sourceTree = "<group>"; };
-		3C56DABE240D1D3A00DA272C /* SettingsGeneral.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsGeneral.xib; sourceTree = "<group>"; };
+		3C749EAB240D71E500E1FA9A /* PrefGeneralView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrefGeneralView.xib; sourceTree = "<group>"; };
+		3C749EAD240D720500E1FA9A /* PrefGeneralVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefGeneralVC.swift; sourceTree = "<group>"; };
 		A82EED492405309C00C28684 /* Yameru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yameru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82EED4C2405309C00C28684 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A82EED4E2405309C00C28684 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C749EAA240D71D400E1FA9A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3C749EAB240D71E500E1FA9A /* PrefGeneralView.xib */,
+				3C749EAD240D720500E1FA9A /* PrefGeneralVC.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A82EED402405309B00C28684 = {
 			isa = PBXGroup;
 			children = (
@@ -110,15 +119,14 @@
 		A82EED4B2405309C00C28684 /* Yameru */ = {
 			isa = PBXGroup;
 			children = (
+				3C749EAA240D71D400E1FA9A /* Settings */,
 				3C47D44024068A0300818F19 /* anime-scream.mp3 */,
 				A82EED4C2405309C00C28684 /* AppDelegate.swift */,
 				A82EED4E2405309C00C28684 /* ContentView.swift */,
 				A82EED502405309E00C28684 /* Assets.xcassets */,
 				A82EED552405309E00C28684 /* Main.storyboard */,
-				3C56DABE240D1D3A00DA272C /* SettingsGeneral.xib */,
 				3C47D43E2406753E00818F19 /* ViewController.swift */,
 				A82EED582405309E00C28684 /* Info.plist */,
-				3C56DABC240D199B00DA272C /* SettingsGeneralViewController.swift */,
 				A82EED592405309E00C28684 /* Yameru.entitlements */,
 				A82EED522405309E00C28684 /* Preview Content */,
 				A82EED7B24054B3800C28684 /* batteryStatus.swift */,
@@ -262,11 +270,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C56DABF240D1D3A00DA272C /* SettingsGeneral.xib in Resources */,
 				3C47D44124068A0300818F19 /* anime-scream.mp3 in Resources */,
 				A82EED572405309E00C28684 /* Main.storyboard in Resources */,
 				A82EED542405309E00C28684 /* Preview Assets.xcassets in Resources */,
 				A82EED512405309E00C28684 /* Assets.xcassets in Resources */,
+				3C749EAC240D71E500E1FA9A /* PrefGeneralView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,8 +300,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A82EED7C24054B3800C28684 /* batteryStatus.swift in Sources */,
-				3C56DABD240D199B00DA272C /* SettingsGeneralViewController.swift in Sources */,
 				A82EED4F2405309C00C28684 /* ContentView.swift in Sources */,
+				3C749EAE240D720500E1FA9A /* PrefGeneralVC.swift in Sources */,
 				3C47D43F2406753E00818F19 /* ViewController.swift in Sources */,
 				A82EED4D2405309C00C28684 /* AppDelegate.swift in Sources */,
 			);
