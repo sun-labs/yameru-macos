@@ -29,7 +29,17 @@ class ViewController: NSViewController {
     }
     
     override func viewDidLoad() {
+        let defaults  = UserDefaults.standard
+        if !isKeyPresentInUserDefaults(key: "setupDone"){
+            defaults.set(true, forKey: "setupDone")
+            defaults.set(false, forKey: "blockUsb")
+            defaults.set("anime-scream", forKey: "alarmSound")
+        }
         fireTimer()
+    }
+    
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
     }
     
     func soundTheAlarm () {
@@ -44,7 +54,8 @@ class ViewController: NSViewController {
     }
     
     func toggleLock () {
-        let url = Bundle.main.url(forResource: "anime-scream", withExtension: "mp3")!
+        let defaults  = UserDefaults.standard.string(forKey: "alarmSound")
+        let url = Bundle.main.url(forResource: defaults, withExtension: "mp3")!
         do {
             self.soundPlayer = try AVAudioPlayer(contentsOf: url)
         } catch let error {
