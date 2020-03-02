@@ -8,14 +8,27 @@
 
 import Cocoa
 import SwiftUI
+import Preferences
+
+extension PreferencePane.Identifier {
+    static let general = Identifier("general")
+    static let advanced = Identifier("advanced")
+}
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
+    lazy var preferencesWindowController = PreferencesWindowController(
+        preferencePanes: [
+            SettingsGeneralViewController()
+        ]
+    )
 
-
-//    func applicationDidFinishLaunching(_ aNotification: Notification) {
+    @IBAction func preferencesDidActivate(_ sender: Any) {
+        preferencesWindowController.show()
+    }
+    //    func applicationDidFinishLaunching(_ aNotification: Notification) {
 //        // Create the SwiftUI view that provides the window contents.
 //        let contentView = ContentView()
 //

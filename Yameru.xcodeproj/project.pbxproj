@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3C47D43F2406753E00818F19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47D43E2406753E00818F19 /* ViewController.swift */; };
 		3C47D44124068A0300818F19 /* anime-scream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C47D44024068A0300818F19 /* anime-scream.mp3 */; };
+		3C56DABB240D14A000DA272C /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 3C56DABA240D14A000DA272C /* Preferences */; };
+		3C56DABD240D199B00DA272C /* SettingsGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C56DABC240D199B00DA272C /* SettingsGeneralViewController.swift */; };
+		3C56DABF240D1D3A00DA272C /* SettingsGeneral.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C56DABE240D1D3A00DA272C /* SettingsGeneral.xib */; };
 		A82EED4D2405309C00C28684 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EED4C2405309C00C28684 /* AppDelegate.swift */; };
 		A82EED4F2405309C00C28684 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EED4E2405309C00C28684 /* ContentView.swift */; };
 		A82EED512405309E00C28684 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82EED502405309E00C28684 /* Assets.xcassets */; };
@@ -39,6 +42,8 @@
 /* Begin PBXFileReference section */
 		3C47D43E2406753E00818F19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3C47D44024068A0300818F19 /* anime-scream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "anime-scream.mp3"; sourceTree = "<group>"; };
+		3C56DABC240D199B00DA272C /* SettingsGeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGeneralViewController.swift; sourceTree = "<group>"; };
+		3C56DABE240D1D3A00DA272C /* SettingsGeneral.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsGeneral.xib; sourceTree = "<group>"; };
 		A82EED492405309C00C28684 /* Yameru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yameru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82EED4C2405309C00C28684 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A82EED4E2405309C00C28684 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C56DABB240D14A000DA272C /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,8 +115,10 @@
 				A82EED4E2405309C00C28684 /* ContentView.swift */,
 				A82EED502405309E00C28684 /* Assets.xcassets */,
 				A82EED552405309E00C28684 /* Main.storyboard */,
+				3C56DABE240D1D3A00DA272C /* SettingsGeneral.xib */,
 				3C47D43E2406753E00818F19 /* ViewController.swift */,
 				A82EED582405309E00C28684 /* Info.plist */,
+				3C56DABC240D199B00DA272C /* SettingsGeneralViewController.swift */,
 				A82EED592405309E00C28684 /* Yameru.entitlements */,
 				A82EED522405309E00C28684 /* Preview Content */,
 				A82EED7B24054B3800C28684 /* batteryStatus.swift */,
@@ -160,6 +168,9 @@
 			dependencies = (
 			);
 			name = Yameru;
+			packageProductDependencies = (
+				3C56DABA240D14A000DA272C /* Preferences */,
+			);
 			productName = Yameru;
 			productReference = A82EED492405309C00C28684 /* Yameru.app */;
 			productType = "com.apple.product-type.application";
@@ -232,6 +243,9 @@
 				Base,
 			);
 			mainGroup = A82EED402405309B00C28684;
+			packageReferences = (
+				3C56DAB9240D14A000DA272C /* XCRemoteSwiftPackageReference "Preferences" */,
+			);
 			productRefGroup = A82EED4A2405309C00C28684 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -248,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C56DABF240D1D3A00DA272C /* SettingsGeneral.xib in Resources */,
 				3C47D44124068A0300818F19 /* anime-scream.mp3 in Resources */,
 				A82EED572405309E00C28684 /* Main.storyboard in Resources */,
 				A82EED542405309E00C28684 /* Preview Assets.xcassets in Resources */,
@@ -277,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A82EED7C24054B3800C28684 /* batteryStatus.swift in Sources */,
+				3C56DABD240D199B00DA272C /* SettingsGeneralViewController.swift in Sources */,
 				A82EED4F2405309C00C28684 /* ContentView.swift in Sources */,
 				3C47D43F2406753E00818F19 /* ViewController.swift in Sources */,
 				A82EED4D2405309C00C28684 /* AppDelegate.swift in Sources */,
@@ -601,6 +617,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3C56DAB9240D14A000DA272C /* XCRemoteSwiftPackageReference "Preferences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Preferences";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C56DABA240D14A000DA272C /* Preferences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C56DAB9240D14A000DA272C /* XCRemoteSwiftPackageReference "Preferences" */;
+			productName = Preferences;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A82EED412405309B00C28684 /* Project object */;
 }
