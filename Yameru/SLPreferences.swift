@@ -10,6 +10,23 @@ import Foundation
 
 class SLPreferences {
     
+    static var PushoverAppToken: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "pushoverAppToken")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "pushoverAppToken")
+        }
+    }
+    static var PushoverUserToken: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "pushoverUserToken")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "pushoverUserToken")
+        }
+    }
+    
     static func prepareApplicationDir () {
         if !SLPreferences.applicationDirExists() {
             let fm = FileManager()

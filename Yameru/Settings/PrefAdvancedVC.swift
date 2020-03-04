@@ -17,4 +17,28 @@ class PrefAdvancedVC: NSViewController, PreferencePane {
 
     override var nibName: NSNib.Name? { "PrefAdvancedView" }
 
+    @IBOutlet weak var txtPushoverUserToken: NSTextField!
+    @IBOutlet weak var txtPushoverToken: NSTextField!
+    override func viewDidLoad() {
+        txtPushoverUserToken.stringValue = SLPreferences.PushoverUserToken ?? ""
+        txtPushoverToken.stringValue = SLPreferences.PushoverAppToken ?? ""
+    }
+    
+    @IBAction func onTestNotification(_ sender: Any) {
+        let token = SLPreferences.PushoverAppToken
+        let userToken = SLPreferences.PushoverUserToken
+        if (token != nil && userToken != nil) {
+            print("Testing")
+            let push = Pushover(app: token!, user: userToken!)
+            push.test()
+        } else {
+            
+        }
+    }
+    @IBAction func pushoverTokenChange(_ sender: NSTextField) {
+        SLPreferences.PushoverAppToken = sender.stringValue
+    }
+    @IBAction func pushoverUserTokenChange(_ sender: NSTextField) {
+        SLPreferences.PushoverUserToken = sender.stringValue
+    }
 }

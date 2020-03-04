@@ -8,6 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PrefAdvancedVC" customModule="Yameru" customModuleProvider="target">
             <connections>
+                <outlet property="txtPushoverToken" destination="hid-Rw-hhJ" id="ANt-Mc-mVo"/>
+                <outlet property="txtPushoverUserToken" destination="uVy-xS-GQ7" id="6N1-R8-9ip"/>
                 <outlet property="view" destination="Wdz-kD-cRL" id="c12-N0-4k1"/>
             </connections>
         </customObject>
@@ -64,6 +66,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="pushoverTokenChange:" target="-2" id="bca-1S-VUb"/>
+                                </connections>
                             </textField>
                         </gridCell>
                         <gridCell row="W7g-M7-NcV" column="YQC-50-GYG" id="7Op-31-Wkg">
@@ -84,6 +89,9 @@
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="pushoverUserTokenChange:" target="-2" id="wRv-lr-3QH"/>
+                                </connections>
                             </textField>
                         </gridCell>
                         <gridCell row="MdW-sj-CNU" column="YQC-50-GYG" id="hc0-qx-yR5"/>
@@ -94,6 +102,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="onTestNotification:" target="-2" id="Ii1-nR-3f9"/>
+                                </connections>
                             </button>
                         </gridCell>
                         <gridCell row="EVO-xH-YaJ" column="YQC-50-GYG" headOfMergedCell="yjV-6t-czk" xPlacement="fill" id="yjV-6t-czk"/>
