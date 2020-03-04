@@ -22,12 +22,14 @@ class ViewController: NSViewController {
     var updateCounter = 0
     var isLocked = false
     var isStolen = false
+    var yameru: YameruTheProtector!
     
     
     required init?(coder aCoder: NSCoder) {
         super.init(coder: aCoder)
         self.battery = batteryStatus()
         self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        self.yameru = YameruTheProtector()
     }
     
     override func viewDidLoad() {
@@ -87,7 +89,7 @@ class ViewController: NSViewController {
         return battery.isCharging()
     }
     
-    func safetyRoutine () {
+    func cableRoutine () {
         if (!isConnected()) {
             if (!self.isStolen) { // first run
                 self.pushover?.send(message: "ALARM COMPUTER DISCONNECTED!!")
@@ -103,6 +105,15 @@ class ViewController: NSViewController {
             self.soundPlayer.stop()
             self.soundPlayer.currentTime = TimeInterval(0)
         }
+    }
+    func usbRoutine() {
+        let dev = self.yameru.getUSBDevices()
+        print (dev)
+    }
+    
+    func safetyRoutine () {
+        cableRoutine()
+        usbRoutine()
     }
     
     func updateUI () {
