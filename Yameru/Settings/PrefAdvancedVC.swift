@@ -28,7 +28,6 @@ class PrefAdvancedVC: NSViewController, PreferencePane {
         let token = SLPreferences.PushoverAppToken
         let userToken = SLPreferences.PushoverUserToken
         if (token != nil && userToken != nil) {
-            print("Testing")
             let push = Pushover(app: token!, user: userToken!)
             push.test()
         } else {

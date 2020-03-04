@@ -21,15 +21,21 @@ class Pushover {
         request.httpMethod = "POST"
         return request
     }
-    func test () {
+    
+    func send(message: String, priority: String = "1") {
         let session = URLSession.shared
         var request = self.request()
         var components = URLComponents(url: self.pushoverEndpoint, resolvingAgainstBaseURL: false)!
         components.queryItems = [
             URLQueryItem(name: "token", value: self.appToken),
             URLQueryItem(name: "user", value: self.userToken),
-            URLQueryItem(name: "message", value: "Yameru says hello!")
+            URLQueryItem(name: "message", value: message),
+            URLQueryItem(name: "priority", value: priority),
         ]
+        if (priority == "2") {
+            components.queryItems?.append(URLQueryItem(name: "expire", value: "3600"))
+            components.queryItems?.append(URLQueryItem(name: "retry", value: "60"))
+        }
         let query = components.url!.query
         request.httpBody = Data(query!.utf8)
         //create dataTask using the session object to send data to the server
@@ -54,5 +60,9 @@ class Pushover {
             }
         })
         task.resume()
+    }
+    
+    func test () {
+        self.send(message: "Yameru says hello!", priority: "1")
     }
 }

@@ -18,8 +18,10 @@ class ViewController: NSViewController {
     var battery: batteryStatus!
     var timer: Timer!
     var soundPlayer: AVAudioPlayer!
+    var pushover: Pushover?
     var updateCounter = 0
     var isLocked = false
+    var isStolen = false
     
     
     required init?(coder aCoder: NSCoder) {
@@ -67,6 +69,14 @@ class ViewController: NSViewController {
             print(error.localizedDescription)
         }
         self.soundPlayer.prepareToPlay()
+        
+        let token = SLPreferences.PushoverAppToken
+        let userToken = SLPreferences.PushoverUserToken
+        if (token != nil && userToken != nil) {
+            self.pushover = Pushover(app: token!, user: userToken!)
+        } else {
+            self.pushover = nil
+        }
         isLocked = !isLocked
     }
     @IBAction func lockButtonClick(_ sender: Any) {
@@ -79,9 +89,21 @@ class ViewController: NSViewController {
     
     func safetyRoutine () {
         if (!isConnected()) {
+            if (!self.isStolen) { // first run
+                if (self.pushover != nil) {
+                    self.pushover!.send(message: "ALARM COMPUTER DISCONNECTED!!")
+                }
+            }
             self.soundPlayer.volume = 1.0
             self.soundPlayer.play()
+            self.isStolen = true
         } else {
+            if (self.isStolen) { // first after connection
+                if (self.pushover != nil) {
+                    self.pushover!.send(message: "Computer connected again")
+                }
+            }
+            self.isStolen = false
             self.soundPlayer.stop()
             self.soundPlayer.currentTime = TimeInterval(0)
         }
