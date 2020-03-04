@@ -23,6 +23,9 @@ class Pushover {
     }
     
     func send(message: String, priority: String = "1") {
+        if (self.appToken.isEmpty || self.userToken.isEmpty) {
+            return
+        }
         let session = URLSession.shared
         var request = self.request()
         var components = URLComponents(url: self.pushoverEndpoint, resolvingAgainstBaseURL: false)!
@@ -63,6 +66,6 @@ class Pushover {
     }
     
     func test () {
-        self.send(message: "Yameru says hello!", priority: "1")
+        self.send(message: "Yameru says hello!", priority: "0")
     }
 }

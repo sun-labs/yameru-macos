@@ -90,18 +90,14 @@ class ViewController: NSViewController {
     func safetyRoutine () {
         if (!isConnected()) {
             if (!self.isStolen) { // first run
-                if (self.pushover != nil) {
-                    self.pushover!.send(message: "ALARM COMPUTER DISCONNECTED!!")
-                }
+                self.pushover?.send(message: "ALARM COMPUTER DISCONNECTED!!")
             }
             self.soundPlayer.volume = 1.0
             self.soundPlayer.play()
             self.isStolen = true
         } else {
             if (self.isStolen) { // first after connection
-                if (self.pushover != nil) {
-                    self.pushover!.send(message: "Computer connected again")
-                }
+                self.pushover?.send(message: "Computer connected again", priority: "0")
             }
             self.isStolen = false
             self.soundPlayer.stop()
