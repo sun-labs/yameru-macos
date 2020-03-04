@@ -9,13 +9,6 @@
 import Foundation
 
 class SLPreferences {
-    static var currentAlarm: String {
-        get {
-            return currentAlarm != nil
-            ? UserDefaults.standard.string(forKey: "alarmSound")!
-            : currentAlarm
-        }
-    }
     
     static func prepareApplicationDir () {
         if !SLPreferences.applicationDirExists() {
