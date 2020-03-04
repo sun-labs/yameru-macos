@@ -367,7 +367,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="9cV-58-rmU">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="860" height="373"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <connections>
                             <outlet property="delegate" destination="GWg-xe-wtS" id="YWL-dn-YBl"/>
@@ -379,29 +379,29 @@
                 </windowController>
                 <customObject id="T82-dB-ImO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-94" y="-277"/>
+            <point key="canvasLocation" x="96" y="-225.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5Pm-yo-6ee">
             <objects>
                 <viewController id="BzT-5W-QSj" customClass="ViewController" customModule="Yameru" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Uzg-ec-VA3">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-0r-31O">
-                                <rect key="frame" x="171" y="234" width="138" height="16"/>
+                                <rect key="frame" x="295" y="308" width="138" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Currently Charging" id="5Jy-zx-GO7">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Currently Charging" id="5Jy-zx-GO7">
                                     <font key="font" metaFont="systemSemibold" size="13"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mS9-hT-yDl">
-                                <rect key="frame" x="170" y="210" width="141" height="16"/>
+                                <rect key="frame" x="295" y="272" width="141" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Waiting for status" id="V79-aD-BwS">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Waiting for status" id="V79-aD-BwS">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -411,7 +411,7 @@
                                 </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YRj-Ot-ELw">
-                                <rect key="frame" x="186" y="69" width="109" height="94"/>
+                                <rect key="frame" x="165" y="230" width="109" height="94"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="🔒" id="XY9-nd-kkb">
                                     <font key="font" metaFont="system" size="64"/>
@@ -420,7 +420,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lt2-MA-kIl">
-                                <rect key="frame" x="184" y="13" width="114" height="32"/>
+                                <rect key="frame" x="291" y="229" width="114" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Lock Device" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OUE-dF-nN8">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -430,17 +430,63 @@
                                     <action selector="lockButtonClick:" target="BzT-5W-QSj" id="p3g-LR-2Kx"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="odU-mc-oqv">
+                                <rect key="frame" x="224" y="119" width="152" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Connected USB Devices" id="iph-KA-4kW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <scrollView fixedFrame="YES" borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fes-ZC-lDX">
+                                <rect key="frame" x="180" y="41" width="240" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="BUK-x9-93I">
+                                    <rect key="frame" x="1" y="1" width="238" height="68"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" smartInsertDelete="YES" id="VhO-Ld-5IB">
+                                            <rect key="frame" x="0.0" y="0.0" width="238" height="68"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="238" height="68"/>
+                                            <size key="maxSize" width="240" height="10000000"/>
+                                            <attributedString key="textStorage">
+                                                <fragment content="Waiting for USB devices">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="zET-RV-9Jl">
+                                    <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="3cB-Ed-Mnv">
+                                    <rect key="frame" x="223" y="1" width="16" height="68"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="BatteryStatusLabel" destination="mS9-hT-yDl" id="bke-6C-xa0"/>
                         <outlet property="lockButton" destination="lt2-MA-kIl" id="NqS-bI-oeV"/>
                         <outlet property="lockLabel" destination="YRj-Ot-ELw" id="qYN-7a-Wfw"/>
+                        <outlet property="usbLabel" destination="VhO-Ld-5IB" id="pSO-RO-FaR"/>
                     </connections>
                 </viewController>
                 <customObject id="pio-vL-uTT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="212"/>
+            <point key="canvasLocation" x="33" y="348"/>
         </scene>
     </scenes>
 </document>

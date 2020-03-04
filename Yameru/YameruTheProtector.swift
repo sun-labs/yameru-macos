@@ -35,7 +35,7 @@ class YameruTheProtector {
     
     
     
-    func getUSBDevices () -> [Any] {
+    func getUSBDevices () -> [[String: String]] {
         let spOutput = self.shell("ioreg -p IOUSB")
         let replaced = spOutput
             .replacingOccurrences(of: "+-o", with: "")

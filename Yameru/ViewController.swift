@@ -17,6 +17,7 @@ class ViewController: NSViewController {
     
     var battery: batteryStatus!
     var timer: Timer!
+    var uiTimer: Timer!
     var soundPlayer: AVAudioPlayer!
     var pushover: Pushover?
     var updateCounter = 0
@@ -24,11 +25,13 @@ class ViewController: NSViewController {
     var isStolen = false
     var yameru: YameruTheProtector!
     
+    @IBOutlet var usbLabel: NSTextView!
     
     required init?(coder aCoder: NSCoder) {
         super.init(coder: aCoder)
         self.battery = batteryStatus()
         self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        self.uiTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(fireUITimer), userInfo: nil, repeats: true)
         self.yameru = YameruTheProtector()
     }
     
@@ -43,6 +46,7 @@ class ViewController: NSViewController {
         }
         defaults.set(0, forKey: "noPinCode") //NOTE: need to be assigned one time
         fireTimer()
+        fireUITimer()
     }
     
     func isKeyPresentInUserDefaults(key: String) -> Bool {
@@ -51,6 +55,16 @@ class ViewController: NSViewController {
     
     func soundTheAlarm () {
         self.soundPlayer.play()
+    }
+    func updateUSBDevices () {
+        let nameList = self.yameru.getUSBDevices().map {
+            return $0["name"]!
+        }
+        let strNameList = nameList.joined(separator: "\n")
+        self.usbLabel.string = strNameList
+    }
+    @objc func fireUITimer () {
+        updateUSBDevices()
     }
     
     @objc func fireTimer () {
