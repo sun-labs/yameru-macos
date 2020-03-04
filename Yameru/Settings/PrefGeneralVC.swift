@@ -21,6 +21,7 @@ class PrefGeneralVC: NSViewController, PreferencePane {
     @IBOutlet weak var previewButton: NSButton!
     @IBOutlet weak var soundDropdown: NSPopUpButton!
     @IBOutlet weak var filePathLabel: NSTextFieldCell!
+    @IBOutlet weak var pinCodeSwitch: NSSegmentedControl!
     
     var isPreviewPlaying = false
     
@@ -87,9 +88,15 @@ class PrefGeneralVC: NSViewController, PreferencePane {
         }
     }
     
+    @IBAction func pinCodeSwitch(_ sender: NSSegmentedControl) {
+        let defaults  = UserDefaults.standard
+        let value = sender.selectedSegment
+        defaults.set(value, forKey: "noPinCode")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        pinCodeSwitch.selectedSegment = UserDefaults.standard.object(forKey: "noPinCode") as! Int;
         let defaults  = UserDefaults.standard.string(forKey: "alarmSound")
         if (defaults == "default") {
             setDefaultSound()
@@ -99,5 +106,7 @@ class PrefGeneralVC: NSViewController, PreferencePane {
         }
         // Setup stuff here
     }
+    
+    
     
 }

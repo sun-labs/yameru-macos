@@ -39,7 +39,9 @@ class ViewController: NSViewController {
             defaults.set(true, forKey: "setupDone")
             defaults.set(false, forKey: "blockUsb")
             defaults.set("default", forKey: "alarmSound")
+            defaults.set(0, forKey: "noPinCode")
         }
+        defaults.set(0, forKey: "noPinCode") //NOTE: need to be assigned one time
         fireTimer()
     }
     
