@@ -50,7 +50,6 @@ class YameruTheProtector {
             let nameAndLoc = infos[0]
                 .trimmingCharacters(in: .whitespacesAndNewlines)
                 .split(separator: "@")
-            print(nameAndLoc)
             let name = String(nameAndLoc[0])
             if (name == "Root") { // root controller not needed, skip
                 continue

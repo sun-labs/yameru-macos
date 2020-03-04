@@ -24,6 +24,10 @@ class ViewController: NSViewController {
     var isLocked = false
     var isStolen = false
     var yameru: YameruTheProtector!
+    var usbSnapshot: [String] = []
+    
+    var usbAlarm = false
+    var cableAlarm = false
     
     @IBOutlet var usbLabel: NSTextView!
     
@@ -53,14 +57,27 @@ class ViewController: NSViewController {
         return UserDefaults.standard.object(forKey: key) != nil
     }
     
-    func soundTheAlarm () {
-        self.soundPlayer.play()
+    func getSnapshopUsbDevices () -> [String] {
+        let devices = self.yameru.getUSBDevices()
+        return devices.map {
+            let name = $0["name"]
+            let location = $0["location"]
+            return "\(name ?? "-"):\(location ?? "-")"
+        }
     }
+    
+    func snapshotUsbDevices () {
+        self.usbSnapshot = self.getSnapshopUsbDevices()
+    }
+    
     func updateUSBDevices () {
         let nameList = self.yameru.getUSBDevices().map {
             return $0["name"]!
         }
-        let strNameList = nameList.joined(separator: "\n")
+        setUsbDevicesUI(deviceIds: nameList)
+    }
+    func setUsbDevicesUI (deviceIds: [String]) {
+        let strNameList = deviceIds.joined(separator: "\n")
         self.usbLabel.string = strNameList
     }
     @objc func fireUITimer () {
@@ -75,6 +92,7 @@ class ViewController: NSViewController {
     }
     
     func toggleLock () {
+        // alarm
         let defaults  = UserDefaults.standard.string(forKey: "alarmSound")!
         var url = URL(fileURLWithPath: defaults)
         print(defaults)
@@ -88,6 +106,7 @@ class ViewController: NSViewController {
         }
         self.soundPlayer.prepareToPlay()
         
+        // pushover
         let token = SLPreferences.PushoverAppToken
         let userToken = SLPreferences.PushoverUserToken
         if (token != nil && userToken != nil) {
@@ -95,6 +114,10 @@ class ViewController: NSViewController {
         } else {
             self.pushover = nil
         }
+        
+        // usb routine
+        snapshotUsbDevices()
+        
         isLocked = !isLocked
     }
     @IBAction func lockButtonClick(_ sender: Any) {
@@ -105,26 +128,41 @@ class ViewController: NSViewController {
         return battery.isCharging()
     }
     
+    func soundTheAlarm() {
+        self.soundPlayer.volume = 1.0
+        self.soundPlayer.play()
+        self.isStolen = true
+    }
+    
+    func stopTheAlarm () {
+        self.soundPlayer.stop()
+        self.soundPlayer.currentTime = TimeInterval(0)
+    }
+    
     func cableRoutine () {
         if (!isConnected()) {
-            if (!self.isStolen) { // first run
+            if (!self.cableAlarm) { // first run
                 self.pushover?.send(message: "ALARM COMPUTER DISCONNECTED!!")
+                soundTheAlarm()
+                self.cableAlarm = true
             }
-            self.soundPlayer.volume = 1.0
-            self.soundPlayer.play()
-            self.isStolen = true
         } else {
-            if (self.isStolen) { // first after connection
+            if (self.cableAlarm) { // first after connection
                 self.pushover?.send(message: "Computer connected again", priority: "0")
+                self.cableAlarm = false
+                stopTheAlarm()
             }
-            self.isStolen = false
-            self.soundPlayer.stop()
-            self.soundPlayer.currentTime = TimeInterval(0)
         }
     }
     func usbRoutine() {
-        let dev = self.yameru.getUSBDevices()
-        print (dev)
+        let devices = self.yameru.getUSBDevices()
+        if devices.count == self.usbSnapshot.count {
+            self.usbAlarm = false
+            stopTheAlarm()
+        } else {
+            soundTheAlarm()
+            self.usbAlarm = true
+        }
     }
     
     func safetyRoutine () {
