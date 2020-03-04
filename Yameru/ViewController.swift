@@ -29,11 +29,12 @@ class ViewController: NSViewController {
     }
     
     override func viewDidLoad() {
+        SLPreferences.prepareApplicationDir()
         let defaults  = UserDefaults.standard
         if !isKeyPresentInUserDefaults(key: "setupDone"){
             defaults.set(true, forKey: "setupDone")
             defaults.set(false, forKey: "blockUsb")
-            defaults.set("anime-scream", forKey: "alarmSound")
+            defaults.set("default", forKey: "alarmSound")
         }
         fireTimer()
     }
@@ -54,8 +55,12 @@ class ViewController: NSViewController {
     }
     
     func toggleLock () {
-        let defaults  = UserDefaults.standard.string(forKey: "alarmSound")
-        let url = Bundle.main.url(forResource: defaults, withExtension: "mp3")!
+        let defaults  = UserDefaults.standard.string(forKey: "alarmSound")!
+        var url = URL(fileURLWithPath: defaults)
+        print(defaults)
+        if (defaults == "default") {
+            url = Bundle.main.url(forResource: "anime-scream", withExtension: "mp3")!
+        }
         do {
             self.soundPlayer = try AVAudioPlayer(contentsOf: url)
         } catch let error {
@@ -74,9 +79,11 @@ class ViewController: NSViewController {
     
     func safetyRoutine () {
         if (!isConnected()) {
+            self.soundPlayer.volume = 1.0
             self.soundPlayer.play()
         } else {
             self.soundPlayer.stop()
+            self.soundPlayer.currentTime = TimeInterval(0)
         }
     }
     
