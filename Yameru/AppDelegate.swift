@@ -23,7 +23,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     lazy var preferencesWindowController = PreferencesWindowController(
         preferencePanes: [
-            PrefGeneralVC()
+            PrefGeneralVC(),
+            PrefAdvancedVC()
         ],
         hidesToolbarForSingleItem: false
     )

@@ -13,6 +13,8 @@
 		3C749EAC240D71E500E1FA9A /* PrefGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C749EAB240D71E500E1FA9A /* PrefGeneralView.xib */; };
 		3C749EAE240D720500E1FA9A /* PrefGeneralVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C749EAD240D720500E1FA9A /* PrefGeneralVC.swift */; };
 		3C85EB3E240FAD4C002D4416 /* SLPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85EB3D240FAD4C002D4416 /* SLPreferences.swift */; };
+		3C85EB41240FBC6D002D4416 /* PrefAdvancedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85EB40240FBC6D002D4416 /* PrefAdvancedVC.swift */; };
+		3C85EB43240FBD58002D4416 /* PrefAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C85EB42240FBD58002D4416 /* PrefAdvancedView.xib */; };
 		A82EED4D2405309C00C28684 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EED4C2405309C00C28684 /* AppDelegate.swift */; };
 		A82EED4F2405309C00C28684 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82EED4E2405309C00C28684 /* ContentView.swift */; };
 		A82EED512405309E00C28684 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82EED502405309E00C28684 /* Assets.xcassets */; };
@@ -46,6 +48,8 @@
 		3C749EAB240D71E500E1FA9A /* PrefGeneralView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrefGeneralView.xib; sourceTree = "<group>"; };
 		3C749EAD240D720500E1FA9A /* PrefGeneralVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefGeneralVC.swift; sourceTree = "<group>"; };
 		3C85EB3D240FAD4C002D4416 /* SLPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLPreferences.swift; sourceTree = "<group>"; };
+		3C85EB40240FBC6D002D4416 /* PrefAdvancedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefAdvancedVC.swift; sourceTree = "<group>"; };
+		3C85EB42240FBD58002D4416 /* PrefAdvancedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrefAdvancedView.xib; sourceTree = "<group>"; };
 		A82EED492405309C00C28684 /* Yameru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yameru.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82EED4C2405309C00C28684 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A82EED4E2405309C00C28684 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +98,8 @@
 			children = (
 				3C749EAB240D71E500E1FA9A /* PrefGeneralView.xib */,
 				3C749EAD240D720500E1FA9A /* PrefGeneralVC.swift */,
+				3C85EB42240FBD58002D4416 /* PrefAdvancedView.xib */,
+				3C85EB40240FBC6D002D4416 /* PrefAdvancedVC.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 				A82EED542405309E00C28684 /* Preview Assets.xcassets in Resources */,
 				A82EED512405309E00C28684 /* Assets.xcassets in Resources */,
 				3C749EAC240D71E500E1FA9A /* PrefGeneralView.xib in Resources */,
+				3C85EB43240FBD58002D4416 /* PrefAdvancedView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +311,7 @@
 			files = (
 				A82EED7C24054B3800C28684 /* batteryStatus.swift in Sources */,
 				A82EED4F2405309C00C28684 /* ContentView.swift in Sources */,
+				3C85EB41240FBC6D002D4416 /* PrefAdvancedVC.swift in Sources */,
 				3C749EAE240D720500E1FA9A /* PrefGeneralVC.swift in Sources */,
 				3C85EB3E240FAD4C002D4416 /* SLPreferences.swift in Sources */,
 				3C47D43F2406753E00818F19 /* ViewController.swift in Sources */,

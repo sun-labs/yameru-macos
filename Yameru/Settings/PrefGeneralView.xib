@@ -132,33 +132,5 @@
             </constraints>
             <point key="canvasLocation" x="105" y="220"/>
         </customView>
-        <button verticalHuggingPriority="750" id="Wpy-f1-af1">
-            <rect key="frame" x="0.0" y="0.0" width="82" height="32"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2ga-x5-XlU">
-                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                <font key="font" metaFont="system"/>
-            </buttonCell>
-            <point key="canvasLocation" x="110" y="438"/>
-        </button>
-        <button verticalHuggingPriority="750" id="XYX-Om-Bya">
-            <rect key="frame" x="0.0" y="0.0" width="61" height="18"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <buttonCell key="cell" type="radio" title="Radio" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="N0E-if-9jp">
-                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                <font key="font" metaFont="system"/>
-            </buttonCell>
-            <point key="canvasLocation" x="111" y="431"/>
-        </button>
-        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="4Nw-bJ-eUv">
-            <rect key="frame" x="0.0" y="0.0" width="37" height="16"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="eTf-G5-caz">
-                <font key="font" usesAppearanceFont="YES"/>
-                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-            </textFieldCell>
-            <point key="canvasLocation" x="166" y="83"/>
-        </textField>
     </objects>
 </document>
