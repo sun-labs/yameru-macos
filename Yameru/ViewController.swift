@@ -29,6 +29,7 @@ class ViewController: NSViewController {
     
     var usbAlarm = false
     var cableAlarm = false
+    var cableActivated = false
     
     @IBOutlet var usbLabel: NSTextView!
     
@@ -117,6 +118,9 @@ class ViewController: NSViewController {
         } else {
             self.pushover = nil
         }
+            
+        // cable
+        self.cableActivated = isConnected()
         
         // usb routine
         snapshotUsbDevices()
@@ -153,6 +157,7 @@ class ViewController: NSViewController {
     }
     
     func cableRoutine () {
+        if (cableActivated) {
         if (!isConnected()) {
             self.yameru.setMaxVolume()
             if (!self.cableAlarm) { // first run
@@ -167,6 +172,7 @@ class ViewController: NSViewController {
                 self.cableAlarm = false
                 stopTheAlarm()
             }
+        }
         }
     }
     func usbRoutine() {
@@ -184,7 +190,6 @@ class ViewController: NSViewController {
             self.yameru.setMaxVolume()
             if (!self.usbAlarm) {
                 if (nDevices > nSnapDevices) {
-                    print("Locking computer")
                     self.yameru.lockComputer()
                     self.pushover?.send(message: "New USB device connected, lockdown")
                 } else {
