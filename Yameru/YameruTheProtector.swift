@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreAudioKit
 
 struct USBDevice {
     var name: String
@@ -31,6 +32,21 @@ class YameruTheProtector {
     }
     func lockComputer () -> String {
         return self.shell("/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -suspend")
+    }
+    
+    func setMaxVolume () {
+        self.setMacVolume(to: "100")
+//        self.setMacVolume(to: "100")
+    }
+    
+    func getMacVolume () -> String {
+        return "\(NSSound.systemVolume)"
+//        return self.shell("osascript -e 'output volume of (get volume settings)'")
+    }
+    
+    func setMacVolume (to: String = "5") {
+        NSSound.systemVolume = Float(to)!
+//        _ = self.shell("osascript -e \"set volume output volume \(to)\"")
     }
     
     

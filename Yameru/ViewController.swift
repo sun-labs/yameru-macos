@@ -25,6 +25,7 @@ class ViewController: NSViewController {
     var isStolen = false
     var yameru: YameruTheProtector!
     var usbSnapshot: [String] = []
+    var userVolume: String!
     
     var usbAlarm = false
     var cableAlarm = false
@@ -92,6 +93,7 @@ class ViewController: NSViewController {
     }
     
     func toggleLock () {
+        if (!isLocked) {
         // alarm
         let defaults  = UserDefaults.standard.string(forKey: "alarmSound")!
         var url = URL(fileURLWithPath: defaults)
@@ -104,6 +106,7 @@ class ViewController: NSViewController {
         } catch let error {
             print(error.localizedDescription)
         }
+        self.soundPlayer.numberOfLoops = -1
         self.soundPlayer.prepareToPlay()
         
         // pushover
@@ -117,6 +120,12 @@ class ViewController: NSViewController {
         
         // usb routine
         snapshotUsbDevices()
+        
+        // volume
+            self.userVolume = self.yameru.getMacVolume()
+        } else {
+            self.yameru.setMacVolume(to: self.userVolume)
+        }
         
         isLocked = !isLocked
     }
@@ -139,16 +148,22 @@ class ViewController: NSViewController {
         self.soundPlayer.currentTime = TimeInterval(0)
     }
     
+    func resetVolume () {
+        self.yameru.setMacVolume(to: self.userVolume)
+    }
+    
     func cableRoutine () {
         if (!isConnected()) {
             if (!self.cableAlarm) { // first run
                 self.pushover?.send(message: "ALARM COMPUTER DISCONNECTED!!")
+                self.yameru.setMaxVolume()
                 soundTheAlarm()
                 self.cableAlarm = true
             }
         } else {
             if (self.cableAlarm) { // first after connection
                 self.pushover?.send(message: "Computer connected again", priority: "0")
+                self.resetVolume()
                 self.cableAlarm = false
                 stopTheAlarm()
             }
@@ -157,11 +172,17 @@ class ViewController: NSViewController {
     func usbRoutine() {
         let devices = self.yameru.getUSBDevices()
         if devices.count == self.usbSnapshot.count {
-            self.usbAlarm = false
-            stopTheAlarm()
+            if (self.usbAlarm) {
+                self.usbAlarm = false
+                self.resetVolume()
+                stopTheAlarm()
+            }
         } else {
-            soundTheAlarm()
-            self.usbAlarm = true
+            if (!self.usbAlarm) {
+                soundTheAlarm()
+                self.yameru.setMaxVolume()
+                self.usbAlarm = true
+            }
         }
     }
     
