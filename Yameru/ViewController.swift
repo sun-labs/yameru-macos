@@ -154,9 +154,9 @@ class ViewController: NSViewController {
     
     func cableRoutine () {
         if (!isConnected()) {
+            self.yameru.setMaxVolume()
             if (!self.cableAlarm) { // first run
                 self.pushover?.send(message: "ALARM COMPUTER DISCONNECTED!!")
-                self.yameru.setMaxVolume()
                 soundTheAlarm()
                 self.cableAlarm = true
             }
@@ -181,6 +181,7 @@ class ViewController: NSViewController {
                 stopTheAlarm()
             }
         } else {
+            self.yameru.setMaxVolume()
             if (!self.usbAlarm) {
                 if (nDevices > nSnapDevices) {
                     print("Locking computer")
@@ -189,7 +190,6 @@ class ViewController: NSViewController {
                 } else {
                     self.pushover?.send(message: "USB device removed")
                 }
-                self.yameru.setMaxVolume()
                 soundTheAlarm()
                 self.usbAlarm = true
             }
