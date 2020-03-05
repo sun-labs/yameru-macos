@@ -10,6 +10,12 @@ import Foundation
 import Cocoa
 import AVFoundation
 
+extension Array {
+    func diff(_ array: Array) -> Int {
+        return self.count - array.count
+    }
+}
+
 class ViewController: NSViewController {
     @IBOutlet weak var BatteryStatusLabel: NSTextField!
     @IBOutlet weak var lockLabel: NSTextField!
@@ -161,7 +167,8 @@ class ViewController: NSViewController {
         if (!isConnected()) {
             self.yameru.setMaxVolume()
             if (!self.cableAlarm) { // first run
-                self.pushover?.send(message: "ALARM COMPUTER DISCONNECTED!!")
+                self.yameru.lockComputer()
+                self.pushover?.send(message: "🔒 Computer disconnected!")
                 soundTheAlarm()
                 self.cableAlarm = true
             }
@@ -176,10 +183,19 @@ class ViewController: NSViewController {
         }
     }
     func usbRoutine() {
-        let devices = self.yameru.getUSBDevices()
+        let devices = self.getSnapshopUsbDevices()
+        let deviceDiff = devices.diff(self.usbSnapshot)
+        var equalDevices = true
+        for deviceId in devices {
+            if (!self.usbSnapshot.contains(deviceId)) {
+                equalDevices = false
+                break
+            }
+        }
+        
         let nDevices = devices.count
         let nSnapDevices = self.usbSnapshot.count
-        if nDevices == nSnapDevices {
+        if deviceDiff == 0 && equalDevices {
             if (self.usbAlarm) {
                 self.pushover?.send(message: "USB devices back to normal", priority: "0")
                 self.usbAlarm = false
@@ -189,11 +205,11 @@ class ViewController: NSViewController {
         } else {
             self.yameru.setMaxVolume()
             if (!self.usbAlarm) {
+                self.yameru.lockComputer()
                 if (nDevices > nSnapDevices) {
-                    self.yameru.lockComputer()
-                    self.pushover?.send(message: "New USB device connected, lockdown")
+                    self.pushover?.send(message: "🔒 New USB device connected")
                 } else {
-                    self.pushover?.send(message: "USB device removed")
+                    self.pushover?.send(message: "🔒 USB device removed")
                 }
                 soundTheAlarm()
                 self.usbAlarm = true
