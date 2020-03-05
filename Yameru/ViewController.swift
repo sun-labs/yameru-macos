@@ -183,6 +183,7 @@ class ViewController: NSViewController {
         } else {
             if (!self.usbAlarm) {
                 if (nDevices > nSnapDevices) {
+                    print("Locking computer")
                     self.yameru.lockComputer()
                     self.pushover?.send(message: "New USB device connected, lockdown")
                 } else {
@@ -202,11 +203,12 @@ class ViewController: NSViewController {
     
     func updateUI () {
         updateCounter += 1
+        let isSafe = !usbAlarm && !cableAlarm
         let isCharging = isConnected()
-        lockButton.isEnabled = isCharging
+        lockButton.isEnabled = isSafe
         if (isLocked) {
             lockButton.title = "Unlock Device"
-            lockLabel.stringValue = isCharging ? "🔒" : "🚨"
+            lockLabel.stringValue = isSafe ? "🔒" : "🚨"
         } else {
             lockButton.title = "Lock Device"
             lockLabel.stringValue = isCharging ? "🔌" : "🔋"

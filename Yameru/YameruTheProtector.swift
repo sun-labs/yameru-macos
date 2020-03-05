@@ -31,7 +31,13 @@ class YameruTheProtector {
         return output
     }
     func lockComputer () {
-        _ = self.shell("/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession -suspend")
+//        let libHandle = dlopen("/System/Library/PrivateFrameworks/login.framework/Versions/Current/login", RTLD_LAZY)
+//          let sym = dlsym(libHandle, "SACLockScreenImmediate")
+//        typealias myFunction = @convention(c) () -> Void
+//        let SACLockScreenImmediate = unsafeBitCast(sym, to: myFunction.self)
+//          SACLockScreenImmediate()
+        _ = self.shell("pmset displaysleepnow")
+//        _ = self.shell("/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession -suspend")
     }
     
     func setMaxVolume () {
