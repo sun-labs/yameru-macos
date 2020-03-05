@@ -171,16 +171,25 @@ class ViewController: NSViewController {
     }
     func usbRoutine() {
         let devices = self.yameru.getUSBDevices()
-        if devices.count == self.usbSnapshot.count {
+        let nDevices = devices.count
+        let nSnapDevices = self.usbSnapshot.count
+        if nDevices == nSnapDevices {
             if (self.usbAlarm) {
+                self.pushover?.send(message: "USB devices back to normal", priority: "0")
                 self.usbAlarm = false
                 self.resetVolume()
                 stopTheAlarm()
             }
         } else {
             if (!self.usbAlarm) {
-                soundTheAlarm()
+                if (nDevices > nSnapDevices) {
+                    self.yameru.lockComputer()
+                    self.pushover?.send(message: "New USB device connected, lockdown")
+                } else {
+                    self.pushover?.send(message: "USB device removed")
+                }
                 self.yameru.setMaxVolume()
+                soundTheAlarm()
                 self.usbAlarm = true
             }
         }

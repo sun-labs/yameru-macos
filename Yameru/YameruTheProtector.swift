@@ -30,8 +30,8 @@ class YameruTheProtector {
 
         return output
     }
-    func lockComputer () -> String {
-        return self.shell("/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -suspend")
+    func lockComputer () {
+        _ = self.shell("/System/Library/CoreServices/Menu Extras/User.menu/Contents/Resources/CGSession -suspend")
     }
     
     func setMaxVolume () {
