@@ -9,6 +9,7 @@
 import Foundation
 import Cocoa
 import AVFoundation
+import SwiftHash
 
 extension Array {
     func diff(_ array: Array) -> Int {
@@ -20,6 +21,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var BatteryStatusLabel: NSTextField!
     @IBOutlet weak var lockLabel: NSTextField!
     @IBOutlet weak var lockButton: NSButton!
+    @IBOutlet weak var txtPinCode: NSTextField!
+    @IBOutlet weak var lblPinCode: NSTextField!
     
     var battery: batteryStatus!
     var timer: Timer!
@@ -56,7 +59,10 @@ class ViewController: NSViewController {
             defaults.set("default", forKey: "alarmSound")
             defaults.set(0, forKey: "noPinCode")
         }
+        SLPreferences.PinCode = "1234"
         defaults.set(0, forKey: "noPinCode") //NOTE: need to be assigned one time
+        txtPinCode.isHidden = true
+        lblPinCode.isHidden = true
         fireTimer()
         fireUITimer()
     }
@@ -133,11 +139,34 @@ class ViewController: NSViewController {
         
         // volume
             self.userVolume = self.yameru.getMacVolume()
+        // ui related
+            self.lblPinCode.isHidden = false
+            self.txtPinCode.isHidden = false
+        // toggle on
+            isLocked = true
         } else {
+            let pinCode = SLPreferences.PinCode!
+            let enteredPin = txtPinCode.stringValue
+            if !pinCode.isEmpty {
+                if (!enteredPin.isEmpty) {
+                    if MD5(enteredPin) == pinCode {
+                        unlock()
+                    } else {
+                        txtPinCode.textColor = NSColor.red
+                    }
+                }
+            } else {
+                unlock()
+            }
             self.yameru.setMacVolume(to: self.userVolume)
         }
-        
-        isLocked = !isLocked
+    }
+    func unlock () {
+        self.isLocked = false
+        txtPinCode.isHidden = true
+        lblPinCode.isHidden = true
+        txtPinCode.textColor = NSColor.black
+        txtPinCode.stringValue = ""
     }
     @IBAction func lockButtonClick(_ sender: Any) {
         toggleLock()

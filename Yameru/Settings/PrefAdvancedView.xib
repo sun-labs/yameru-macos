@@ -50,7 +50,7 @@
                         <gridCell row="dWm-LE-KeU" column="86a-gJ-dBD" id="Jwg-g6-LB7"/>
                         <gridCell row="nyI-80-ga2" column="YQC-50-GYG" id="9yE-7J-Dpx">
                             <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KYp-ep-3Uu">
-                                <rect key="frame" x="50" y="134" width="64" height="16"/>
+                                <rect key="frame" x="50" y="130" width="64" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="API Token" id="2HN-yI-NCD">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -60,7 +60,7 @@
                         </gridCell>
                         <gridCell row="nyI-80-ga2" column="86a-gJ-dBD" id="vXX-VF-wPi">
                             <textField key="contentView" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hid-Rw-hhJ">
-                                <rect key="frame" x="122" y="131" width="100" height="21"/>
+                                <rect key="frame" x="122" y="127" width="100" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Cbp-I0-VIA">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -68,12 +68,13 @@
                                 </textFieldCell>
                                 <connections>
                                     <action selector="pushoverTokenChange:" target="-2" id="bca-1S-VUb"/>
+                                    <outlet property="nextKeyView" destination="uVy-xS-GQ7" id="988-yz-AZU"/>
                                 </connections>
                             </textField>
                         </gridCell>
                         <gridCell row="W7g-M7-NcV" column="YQC-50-GYG" id="7Op-31-Wkg">
                             <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yAR-TA-nKK">
-                                <rect key="frame" x="41" y="101" width="73" height="16"/>
+                                <rect key="frame" x="41" y="97" width="73" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="User Token" id="VEb-K5-hBb">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -83,7 +84,7 @@
                         </gridCell>
                         <gridCell row="W7g-M7-NcV" column="86a-gJ-dBD" id="e0L-Cu-Lmo">
                             <textField key="contentView" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uVy-xS-GQ7">
-                                <rect key="frame" x="122" y="98" width="100" height="21"/>
+                                <rect key="frame" x="122" y="94" width="100" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="bZE-0B-d5p">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -91,6 +92,7 @@
                                 </textFieldCell>
                                 <connections>
                                     <action selector="pushoverUserTokenChange:" target="-2" id="wRv-lr-3QH"/>
+                                    <outlet property="nextKeyView" destination="1FU-Do-4DG" id="AZj-wo-2Oy"/>
                                 </connections>
                             </textField>
                         </gridCell>
@@ -104,6 +106,7 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="onTestNotification:" target="-2" id="Ii1-nR-3f9"/>
+                                    <outlet property="nextKeyView" destination="hid-Rw-hhJ" id="4xZ-zR-fqo"/>
                                 </connections>
                             </button>
                         </gridCell>

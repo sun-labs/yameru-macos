@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftHash
 
 class SLPreferences {
     
@@ -30,6 +31,18 @@ class SLPreferences {
     static var USBCheckActivated: Bool? {
         get { return UserDefaults.standard.bool(forKey: "usbCheckActivated") }
         set { UserDefaults.standard.set(newValue, forKey: "usbCheckActivated") }
+    }
+    
+    static var PinCode: String? {
+        get { return UserDefaults.standard.string(forKey: "pinCode") }
+        set {
+            UserDefaults.standard.set(
+                newValue != nil
+                    ? MD5(newValue!)
+                    : "",
+                forKey: "pinCode"
+            )
+        }
     }
     
     static func prepareApplicationDir () {
