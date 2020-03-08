@@ -18,6 +18,7 @@ extension PreferencePane.Identifier {
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    @IBOutlet var menuPropItem: NSMenuItem!
     var window: NSWindow!
     
     
@@ -28,6 +29,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         ],
         hidesToolbarForSingleItem: false
     )
+    
+    @IBOutlet weak var appMenu: NSMenuItem!
+    func disableProperties () {
+        menuPropItem.isEnabled = false
+    }
+    
+    func enableProperties () {
+        menuPropItem.isEnabled = true
+    }
     
 
     @IBAction func preferencesDidActivate(_ sender: Any) {

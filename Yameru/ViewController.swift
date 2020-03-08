@@ -106,6 +106,7 @@ class ViewController: NSViewController {
     }
     
     func toggleLock () {
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
         if (!isLocked) {
         // alarm
         let defaults  = UserDefaults.standard.string(forKey: "alarmSound")!
@@ -142,7 +143,8 @@ class ViewController: NSViewController {
         // ui related
             self.lblPinCode.isHidden = false
             self.txtPinCode.isHidden = false
-        // toggle on
+            appDelegate.disableProperties()
+            // toggle on
             isLocked = true
         } else {
             let pinCode = SLPreferences.PinCode!
@@ -162,9 +164,11 @@ class ViewController: NSViewController {
         }
     }
     func unlock () {
+        let appDelegate = NSApplication.shared.delegate as! AppDelegate
         self.isLocked = false
         txtPinCode.isHidden = true
         lblPinCode.isHidden = true
+        appDelegate.enableProperties()
         txtPinCode.textColor = NSColor.black
         txtPinCode.stringValue = ""
     }

@@ -14,7 +14,7 @@
                         <items>
                             <menuItem title="Yameru" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Yameru" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Yameru" systemMenu="apple" autoenablesItems="NO" id="uQy-DD-JDr">
                                     <items>
                                         <menuItem title="About Yameru" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -354,11 +354,17 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Yameru" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Yameru" customModuleProvider="target">
+                    <connections>
+                        <outlet property="appMenu" destination="1Xt-HY-uBw" id="TAY-Ma-QpO"/>
+                        <outlet property="menuPropItem" destination="BOF-NM-1cW" id="Qcf-m1-oB5"/>
+                        <outlet property="menuPropertyItem" destination="BOF-NM-1cW" id="M5x-6F-0qs"/>
+                    </connections>
+                </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="381" y="-62"/>
+            <point key="canvasLocation" x="531" y="64"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="zIw-YN-SNe">
