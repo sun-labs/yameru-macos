@@ -359,6 +359,7 @@
                         <outlet property="appMenu" destination="1Xt-HY-uBw" id="TAY-Ma-QpO"/>
                         <outlet property="menuPropItem" destination="BOF-NM-1cW" id="Qcf-m1-oB5"/>
                         <outlet property="menuPropertyItem" destination="BOF-NM-1cW" id="M5x-6F-0qs"/>
+                        <outlet property="menuQuitItem" destination="4sb-4s-VLi" id="YTw-7L-5OK"/>
                     </connections>
                 </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -502,6 +503,17 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="REa-eb-wTW">
+                                <rect key="frame" x="174" y="136" width="219" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Disable sleep when lid closed" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="C7x-43-9Mz">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="disableLidSleepAction:" target="BzT-5W-QSj" id="TdU-Oy-FrV"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>

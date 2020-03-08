@@ -30,6 +30,13 @@ class YameruTheProtector {
 
         return output
     }
+    func disableLidSleep() {
+        _ = self.shell("sudo pmset -a disablesleep 1")
+    }
+    
+    func enableLidSleep () {
+        _ = self.shell("sudo pmset -a disablesleep 0")
+    }
     func lockComputer () {
 //        let libHandle = dlopen("/System/Library/PrivateFrameworks/login.framework/Versions/Current/login", RTLD_LAZY)
 //          let sym = dlsym(libHandle, "SACLockScreenImmediate")

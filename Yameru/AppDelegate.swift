@@ -21,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var menuPropItem: NSMenuItem!
     var window: NSWindow!
     
+    @IBOutlet var menuQuitItem: NSMenuItem!
     
     lazy var preferencesWindowController = PreferencesWindowController(
         preferencePanes: [
@@ -33,10 +34,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var appMenu: NSMenuItem!
     func disableProperties () {
         menuPropItem.isEnabled = false
+        menuQuitItem.isEnabled = false
     }
     
     func enableProperties () {
         menuPropItem.isEnabled = true
+        menuQuitItem.isEnabled = true
     }
     
 

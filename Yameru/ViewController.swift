@@ -18,6 +18,7 @@ extension Array {
 }
 
 class ViewController: NSViewController {
+    
     @IBOutlet weak var BatteryStatusLabel: NSTextField!
     @IBOutlet weak var lockLabel: NSTextField!
     @IBOutlet weak var lockButton: NSButton!
@@ -28,10 +29,10 @@ class ViewController: NSViewController {
     var timer: Timer!
     var uiTimer: Timer!
     var soundPlayer: AVAudioPlayer!
+    var soundPlayerUsb: AVAudioPlayer!
     var pushover: Pushover?
     var updateCounter = 0
     var isLocked = false
-    var isStolen = false
     var yameru: YameruTheProtector!
     var usbSnapshot: [String] = []
     var userVolume: String!
@@ -48,6 +49,10 @@ class ViewController: NSViewController {
         self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
         self.uiTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(fireUITimer), userInfo: nil, repeats: true)
         self.yameru = YameruTheProtector()
+    }
+    
+    @IBAction func disableLidSleepAction(_ sender: Any) {
+        self.yameru.disableLidSleep()
     }
     
     override func viewDidLoad() {
@@ -117,9 +122,12 @@ class ViewController: NSViewController {
         }
         do {
             self.soundPlayer = try AVAudioPlayer(contentsOf: url)
+            self.soundPlayerUsb = try AVAudioPlayer(contentsOf: url)
         } catch let error {
             print(error.localizedDescription)
         }
+            self.soundPlayerUsb.numberOfLoops = -1
+            self.soundPlayerUsb.prepareToPlay()
         self.soundPlayer.numberOfLoops = -1
         self.soundPlayer.prepareToPlay()
         
@@ -144,8 +152,10 @@ class ViewController: NSViewController {
             self.lblPinCode.isHidden = false
             self.txtPinCode.isHidden = false
             appDelegate.disableProperties()
+            self.view.window!.styleMask.remove(.closable)
             // toggle on
             isLocked = true
+            
         } else {
             let pinCode = SLPreferences.PinCode!
             let enteredPin = txtPinCode.stringValue
@@ -169,6 +179,7 @@ class ViewController: NSViewController {
         txtPinCode.isHidden = true
         lblPinCode.isHidden = true
         appDelegate.enableProperties()
+        self.view.window!.styleMask.insert(.closable)
         txtPinCode.textColor = NSColor.black
         txtPinCode.stringValue = ""
     }
@@ -183,7 +194,16 @@ class ViewController: NSViewController {
     func soundTheAlarm() {
         self.soundPlayer.volume = 1.0
         self.soundPlayer.play()
-        self.isStolen = true
+    }
+    
+    func soundUsbAlarm() {
+        self.soundPlayerUsb.volume = 1.0
+        self.soundPlayerUsb.play()
+    }
+    
+    func stopUsbAlarm() {
+        self.soundPlayerUsb.stop()
+        self.soundPlayerUsb.currentTime = TimeInterval(0)
     }
     
     func stopTheAlarm () {
@@ -233,7 +253,7 @@ class ViewController: NSViewController {
                 self.pushover?.send(message: "USB devices back to normal", priority: "0")
                 self.usbAlarm = false
                 self.resetVolume()
-                stopTheAlarm()
+                stopUsbAlarm()
             }
         } else {
             self.yameru.setMaxVolume()
@@ -244,7 +264,7 @@ class ViewController: NSViewController {
                 } else {
                     self.pushover?.send(message: "🔒 USB device removed")
                 }
-                soundTheAlarm()
+                soundUsbAlarm()
                 self.usbAlarm = true
             }
         }
