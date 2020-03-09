@@ -30,12 +30,19 @@ class YameruTheProtector {
 
         return output
     }
+    func sudoShell(_ cmd: String) -> String? {
+        let theASScript = "do shell script \"\(cmd)\" with administrator privileges"
+
+        let appleScript = NSAppleScript(source: theASScript)
+        let eventResult = appleScript?.executeAndReturnError(nil)
+        return eventResult?.stringValue
+    }
     func disableLidSleep() {
-        _ = self.shell("sudo pmset -a disablesleep 1")
+        _ = self.sudoShell("pmset -a disablesleep 1")
     }
     
     func enableLidSleep () {
-        _ = self.shell("sudo pmset -a disablesleep 0")
+        _ = self.sudoShell("pmset -a disablesleep 0")
     }
     func lockComputer () {
 //        let libHandle = dlopen("/System/Library/PrivateFrameworks/login.framework/Versions/Current/login", RTLD_LAZY)

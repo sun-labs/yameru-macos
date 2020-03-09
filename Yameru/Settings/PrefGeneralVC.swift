@@ -96,7 +96,6 @@ class PrefGeneralVC: NSViewController, PreferencePane {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pinCodeSwitch.selectedSegment = UserDefaults.standard.object(forKey: "noPinCode") as! Int;
         let defaults  = UserDefaults.standard.string(forKey: "alarmSound")
         if (defaults == "default") {
             setDefaultSound()

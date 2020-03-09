@@ -153,8 +153,14 @@ class ViewController: NSViewController {
             self.txtPinCode.isHidden = false
             appDelegate.disableProperties()
             self.view.window!.styleMask.remove(.closable)
-            // toggle on
-            isLocked = true
+            
+        // run sudo related commands
+        if (SLPreferences.SecureMode!) {
+            self.yameru.disableLidSleep()
+        }
+            
+        // toggle on
+        isLocked = true
             
         } else {
             let pinCode = SLPreferences.PinCode!
@@ -182,6 +188,11 @@ class ViewController: NSViewController {
         self.view.window!.styleMask.insert(.closable)
         txtPinCode.textColor = NSColor.black
         txtPinCode.stringValue = ""
+        
+        // run sudo related commands
+        if (SLPreferences.SecureMode!) {
+            self.yameru.enableLidSleep()
+        }
     }
     @IBAction func lockButtonClick(_ sender: Any) {
         toggleLock()

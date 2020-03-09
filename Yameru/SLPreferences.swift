@@ -33,6 +33,11 @@ class SLPreferences {
         set { UserDefaults.standard.set(newValue, forKey: "usbCheckActivated") }
     }
     
+    static var SecureMode: Bool? {
+        get { return UserDefaults.standard.bool(forKey: "secureMode") }
+        set { UserDefaults.standard.set(newValue, forKey: "secureMode") }
+    }
+    
     static var PinCode: String? {
         get { return UserDefaults.standard.string(forKey: "pinCode") }
         set {
