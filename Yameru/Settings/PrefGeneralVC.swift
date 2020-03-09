@@ -9,6 +9,7 @@
 import Preferences
 import Cocoa
 import AVFoundation
+import SwiftHash
 
 class PrefGeneralVC: NSViewController, PreferencePane {
     let preferencePaneIdentifier = PreferencePane.Identifier.general
@@ -94,6 +95,42 @@ class PrefGeneralVC: NSViewController, PreferencePane {
         defaults.set(value, forKey: "noPinCode")
     }
     
+    func getString(title: String, question: String, defaultValue: String = "") -> String {
+        let msg = NSAlert()
+        msg.addButton(withTitle: "OK")      // 1st button
+        msg.addButton(withTitle: "Cancel")  // 2nd button
+        msg.messageText = title
+        msg.informativeText = question
+
+        let txt = NSTextField(frame: NSRect(x: 0, y: 0, width: 200, height: 24))
+        txt.stringValue = defaultValue
+
+        msg.accessoryView = txt
+        let response: NSApplication.ModalResponse = msg.runModal()
+
+        if (response == NSApplication.ModalResponse.alertFirstButtonReturn) {
+            return txt.stringValue
+        } else {
+            return ""
+        }
+    }
+    
+    @IBAction func clickSetPin(_ sender: Any) {
+        let current = SLPreferences.PinCode
+        if (current != nil) {
+            let userCurrent = getString(title: "Security Check", question: "Please enter current Pin Code")
+            let userMD5 = MD5(userCurrent)
+            if (current != userMD5) {
+                return
+            }
+        }
+        
+        let newPin = getString(title: "Security Check", question: "Please enter new Pin Code")
+        if (!newPin.isEmpty) {
+            SLPreferences.PinCode = newPin
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         let defaults  = UserDefaults.standard.string(forKey: "alarmSound")

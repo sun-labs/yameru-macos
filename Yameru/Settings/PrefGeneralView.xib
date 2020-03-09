@@ -151,7 +151,18 @@
                             </button>
                         </gridCell>
                         <gridCell row="q3K-sJ-Ttv" column="FVs-La-vbr" id="fRe-Tl-r8F"/>
-                        <gridCell row="q3K-sJ-Ttv" column="bDu-0l-gcS" id="Dhc-ZU-vD4"/>
+                        <gridCell row="q3K-sJ-Ttv" column="bDu-0l-gcS" id="Dhc-ZU-vD4">
+                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xmt-ja-YqW">
+                                <rect key="frame" x="116" y="-3" width="126" height="32"/>
+                                <buttonCell key="cell" type="push" title="Set Pin Code.." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XrD-2x-Mem">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clickSetPin:" target="-2" id="pdF-YV-DjB"/>
+                                </connections>
+                            </button>
+                        </gridCell>
                     </gridCells>
                 </gridView>
             </subviews>

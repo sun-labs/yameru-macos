@@ -64,7 +64,6 @@ class ViewController: NSViewController {
             defaults.set("default", forKey: "alarmSound")
             defaults.set(0, forKey: "noPinCode")
         }
-        SLPreferences.PinCode = "1234"
         defaults.set(0, forKey: "noPinCode") //NOTE: need to be assigned one time
         txtPinCode.isHidden = true
         lblPinCode.isHidden = true
