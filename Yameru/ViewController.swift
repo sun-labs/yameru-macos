@@ -112,6 +112,13 @@ class ViewController: NSViewController {
     func toggleLock () {
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
         if (!isLocked) {
+        // run sudo related commands
+        if (SLPreferences.SecureMode!) {
+            let response = self.yameru.disableLidSleep()
+            if (response == nil) {
+                return
+            }
+        }
         // alarm
         let defaults  = UserDefaults.standard.string(forKey: "alarmSound")!
         var url = URL(fileURLWithPath: defaults)
@@ -153,11 +160,6 @@ class ViewController: NSViewController {
             appDelegate.disableProperties()
             self.view.window!.styleMask.remove(.closable)
             
-        // run sudo related commands
-        if (SLPreferences.SecureMode!) {
-            self.yameru.disableLidSleep()
-        }
-            
         // toggle on
         isLocked = true
             
@@ -180,6 +182,13 @@ class ViewController: NSViewController {
     }
     func unlock () {
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
+        // run sudo related commands
+        if (SLPreferences.SecureMode!) {
+            let response = self.yameru.enableLidSleep()
+            if (response == nil) {
+                return
+            }
+        }
         self.isLocked = false
         txtPinCode.isHidden = true
         lblPinCode.isHidden = true
@@ -187,11 +196,6 @@ class ViewController: NSViewController {
         self.view.window!.styleMask.insert(.closable)
         txtPinCode.textColor = NSColor.black
         txtPinCode.stringValue = ""
-        
-        // run sudo related commands
-        if (SLPreferences.SecureMode!) {
-            self.yameru.enableLidSleep()
-        }
     }
     @IBAction func lockButtonClick(_ sender: Any) {
         toggleLock()

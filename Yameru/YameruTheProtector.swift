@@ -37,12 +37,12 @@ class YameruTheProtector {
         let eventResult = appleScript?.executeAndReturnError(nil)
         return eventResult?.stringValue
     }
-    func disableLidSleep() {
-        _ = self.sudoShell("pmset -a disablesleep 1")
+    func disableLidSleep() -> String? {
+        return self.sudoShell("pmset -a disablesleep 1")
     }
     
-    func enableLidSleep () {
-        _ = self.sudoShell("pmset -a disablesleep 0")
+    func enableLidSleep () -> String? {
+        return self.sudoShell("pmset -a disablesleep 0")
     }
     func lockComputer () {
 //        let libHandle = dlopen("/System/Library/PrivateFrameworks/login.framework/Versions/Current/login", RTLD_LAZY)
