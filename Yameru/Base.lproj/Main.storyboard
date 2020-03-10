@@ -456,9 +456,6 @@
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="value-color"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <connections>
-                                        <binding destination="Axh-bZ-LgV" name="value" keyPath="values" id="JOu-8e-3Pu"/>
-                                    </connections>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPn-jL-ONz">

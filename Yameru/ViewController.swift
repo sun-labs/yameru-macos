@@ -40,6 +40,7 @@ class ViewController: NSViewController {
     var usbAlarm = false
     var cableAlarm = false
     var cableActivated = false
+    var usbActivated = true
     
     @IBOutlet weak var deviceLblValue: NSTextField!
     @IBOutlet weak var powerCableLblValue: NSTextField!
@@ -221,7 +222,7 @@ class ViewController: NSViewController {
             self.yameru.setMaxVolume()
             if (!self.cableAlarm) { // first run
                 self.yameru.lockComputer()
-                self.pushover?.send(message: "🔒 Computer disconnected!")
+                self.pushover?.send(message: "🚨 Computer disconnected!")
                 soundTheAlarm()
                 self.cableAlarm = true
             }
@@ -260,9 +261,9 @@ class ViewController: NSViewController {
             if (!self.usbAlarm) {
                 self.yameru.lockComputer()
                 if (nDevices > nSnapDevices) {
-                    self.pushover?.send(message: "🔒 New USB device connected")
+                    self.pushover?.send(message: "🚨 New USB device connected")
                 } else {
-                    self.pushover?.send(message: "🔒 USB device removed")
+                    self.pushover?.send(message: "🚨 USB device removed")
                 }
                 soundUsbAlarm()
                 self.usbAlarm = true
@@ -297,13 +298,26 @@ class ViewController: NSViewController {
         let isSafe = !usbAlarm && !cableAlarm
         let isCharging = isConnected()
         if (isLocked) {
+            powerCableLblValue.stringValue = cableActivated
+                ? cableAlarm
+                    ? "🚨 Disconnected"
+                    : "🔒 Armed"
+                : "⚠️ Not Activated"
+            deviceLblValue.stringValue = usbAlarm
+                ? "🚨 Danger"
+                : "🔒 Armed"
             if (isSafe) {
                 self.setYameruGifImage(name: "yameru-active")
             } else {
                 self.setYameruGifImage(name: "yameru-alarm")
             }
         } else {
-            powerCableLblValue.stringValue = isCharging ? "Ready" : "Not Connected"
+            powerCableLblValue.stringValue = isCharging
+                ? "Ready"
+                : "⚠️ Not Connected"
+            deviceLblValue.stringValue = usbActivated
+                ? "Ready"
+                : "⚠️ Not Activated"
             self.setYameruImage(name: "yameru-logo-normal")
         }
 //        lockButton.isEnabled = isSafe
