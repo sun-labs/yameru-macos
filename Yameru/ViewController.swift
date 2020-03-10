@@ -147,15 +147,18 @@ class ViewController: NSViewController {
         isLocked = true
             
         } else {
-            let pinCode = SLPreferences.PinCode!
-            let enteredPin = txtPinCode.stringValue
-            if !pinCode.isEmpty {
-                if (!enteredPin.isEmpty) {
-                    if MD5(enteredPin) == pinCode {
-                        unlock()
-                    } else {
-                        txtPinCode.textColor = NSColor.red
+            if let pinCode = SLPreferences.PinCode{
+                let enteredPin = txtPinCode.stringValue
+                if !pinCode.isEmpty {
+                    if (!enteredPin.isEmpty) {
+                        if MD5(enteredPin) == pinCode {
+                            unlock()
+                        } else {
+                            txtPinCode.textColor = NSColor.red
+                        }
                     }
+                } else {
+                    unlock()
                 }
             } else {
                 unlock()
