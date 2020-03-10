@@ -25,7 +25,7 @@ class PrefGeneralVC: NSViewController, PreferencePane {
     @IBOutlet weak var pinCodeSwitch: NSSegmentedControl!
     
     var isPreviewPlaying = false
-    
+    let yameru = YameruTheProtector()
     
     func setDefaultSound() {
         let url = Bundle.main.url(forResource: "anime-scream", withExtension: "mp3")!
@@ -89,12 +89,6 @@ class PrefGeneralVC: NSViewController, PreferencePane {
         }
     }
     
-    @IBAction func pinCodeSwitch(_ sender: NSSegmentedControl) {
-        let defaults  = UserDefaults.standard
-        let value = sender.selectedSegment
-        defaults.set(value, forKey: "noPinCode")
-    }
-    
     func getString(title: String, question: String, defaultValue: String = "") -> String {
         let msg = NSAlert()
         msg.addButton(withTitle: "OK")      // 1st button
@@ -131,6 +125,17 @@ class PrefGeneralVC: NSViewController, PreferencePane {
         }
         
     }
+    @IBOutlet weak var toggleStateSecure: NSButton!
+    @IBAction func clickSetSecure(_ sender: Any) {
+        let response = yameru.sudoShell("echo it is done")
+        if response != nil {
+            let currentState = SLPreferences.SecureMode
+            toggleStateSecure.state = NSControl.StateValue.on //TODO: make sure to check the state to ensure it loads correct content
+            SLPreferences.SecureMode = (currentState)!
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let defaults  = UserDefaults.standard.string(forKey: "alarmSound")

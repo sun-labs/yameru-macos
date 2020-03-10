@@ -11,6 +11,7 @@
                 <outlet property="filePathLabel" destination="aAZ-kc-f5Y" id="c7h-iS-rdx"/>
                 <outlet property="previewButton" destination="2sA-QK-pZE" id="bg0-DH-Ido"/>
                 <outlet property="soundDropdown" destination="hFN-bH-Fnd" id="IVF-eD-0Ox"/>
+                <outlet property="toggleStateSecure" destination="YJ5-wW-rvm" id="iph-Lv-EGV"/>
                 <outlet property="view" destination="DbU-zT-SbG" id="TvI-lL-XZ0"/>
             </connections>
         </customObject>
@@ -55,7 +56,7 @@
                                 <rect key="frame" x="120" y="250" width="139" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="czF-UK-3wK" id="4Fx-cg-Gdh">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
+                                    <font key="font" metaFont="system"/>
                                     <menu key="menu" id="im4-Cm-EOB">
                                         <items>
                                             <menuItem title="Default" state="on" id="czF-UK-3wK">
@@ -142,11 +143,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <binding destination="LRh-KN-z8w" name="value" keyPath="values.secureMode" id="4Sk-Pw-dPT">
-                                        <dictionary key="options">
-                                            <integer key="NSNoSelectionPlaceholder" value="1"/>
-                                        </dictionary>
-                                    </binding>
+                                    <action selector="clickSetSecure:" target="-2" id="8Fi-xg-fcY"/>
                                 </connections>
                             </button>
                         </gridCell>
