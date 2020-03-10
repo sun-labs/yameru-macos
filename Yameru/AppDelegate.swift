@@ -9,6 +9,7 @@
 import Cocoa
 import SwiftUI
 import Preferences
+import CustomButton
 
 extension PreferencePane.Identifier {
     static let general = Identifier("general")
@@ -30,6 +31,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         ],
         hidesToolbarForSingleItem: false
     )
+    
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        
+    }
     
     @IBOutlet weak var appMenu: NSMenuItem!
     func disableProperties () {

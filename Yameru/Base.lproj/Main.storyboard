@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -371,7 +372,7 @@
         <scene sceneID="zIw-YN-SNe">
             <objects>
                 <windowController id="GWg-xe-wtS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="9cV-58-rmU">
+                    <window key="window" title="Yameru" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="9cV-58-rmU">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="860" height="373"/>
@@ -396,94 +397,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-0r-31O">
-                                <rect key="frame" x="18" y="95" width="138" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Currently Charging" id="5Jy-zx-GO7">
-                                    <font key="font" metaFont="systemSemibold" size="13"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mS9-hT-yDl">
-                                <rect key="frame" x="18" y="59" width="141" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Waiting for status" id="V79-aD-BwS">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <outlet property="delegate" destination="BzT-5W-QSj" id="aVS-oY-EDY"/>
-                                </connections>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YRj-Ot-ELw">
-                                <rect key="frame" x="165" y="230" width="109" height="94"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="🔒" id="XY9-nd-kkb">
-                                    <font key="font" metaFont="system" size="64"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="odU-mc-oqv">
-                                <rect key="frame" x="224" y="119" width="152" height="16"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Connected USB Devices" id="iph-KA-4kW">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <scrollView fixedFrame="YES" borderType="line" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fes-ZC-lDX">
-                                <rect key="frame" x="180" y="41" width="240" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <clipView key="contentView" ambiguous="YES" copiesOnScroll="NO" id="BUK-x9-93I">
-                                    <rect key="frame" x="1" y="1" width="238" height="68"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" smartInsertDelete="YES" id="VhO-Ld-5IB">
-                                            <rect key="frame" x="0.0" y="0.0" width="238" height="68"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="238" height="68"/>
-                                            <size key="maxSize" width="240" height="10000000"/>
-                                            <attributedString key="textStorage">
-                                                <fragment content="Waiting for USB devices">
-                                                    <attributes>
-                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <font key="NSFont" size="12" name="Helvetica"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        </textView>
-                                    </subviews>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="zET-RV-9Jl">
-                                    <rect key="frame" x="-100" y="-100" width="240" height="16"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="3cB-Ed-Mnv">
-                                    <rect key="frame" x="223" y="1" width="16" height="68"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lt2-MA-kIl">
-                                <rect key="frame" x="290" y="236" width="114" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Lock Device" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OUE-dF-nN8">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="lockButtonClick:" target="BzT-5W-QSj" id="p3g-LR-2Kx"/>
-                                </connections>
-                            </button>
                             <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0MK-MG-z1U">
-                                <rect key="frame" x="299" y="279" width="96" height="21"/>
+                                <rect key="frame" x="249" y="93" width="96" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="kX5-PG-Ynu">
                                     <font key="font" metaFont="system"/>
@@ -495,7 +410,7 @@
                                 </secureTextFieldCell>
                             </secureTextField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UXu-y1-LkU">
-                                <rect key="frame" x="278" y="308" width="138" height="16"/>
+                                <rect key="frame" x="228" y="122" width="138" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Enter Pin Code" id="zrl-RX-xOy">
                                     <font key="font" metaFont="systemSemibold" size="13"/>
@@ -503,20 +418,89 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Izz-2g-F5B">
+                                <rect key="frame" x="-18" y="0.0" width="630" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="light-bar-background" id="cWB-uo-UBq"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7s-78-3gP">
+                                <rect key="frame" x="140" y="179" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="yameru-logo-normal" id="7wE-1C-l7l"/>
+                            </imageView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i1A-ac-VYA" customClass="RoundButton" customModule="Yameru" customModuleProvider="target">
+                                <rect key="frame" x="218" y="11" width="164" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="bevel" title="Lock Device" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="qOF-kt-4jD">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="17"/>
+                                </buttonCell>
+                                <color key="contentTintColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
+                                <connections>
+                                    <action selector="lockButtonClick:" target="BzT-5W-QSj" id="JLg-nZ-8Ng"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NDK-J2-IEK">
+                                <rect key="frame" x="295" y="273" width="112" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Device Protection" id="eEZ-xe-gK0">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dTn-ex-sCi">
+                                <rect key="frame" x="295" y="253" width="204" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Ready" id="dt4-uq-dVb">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="value-color"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <binding destination="Axh-bZ-LgV" name="value" keyPath="values" id="JOu-8e-3Pu"/>
+                                    </connections>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPn-jL-ONz">
+                                <rect key="frame" x="295" y="216" width="146" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Power Cable Protection" id="igy-18-NN5">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VvF-FK-ooS">
+                                <rect key="frame" x="295" y="196" width="204" height="16"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Ready" id="fhw-7I-FLn">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="value-color"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="BatteryStatusLabel" destination="mS9-hT-yDl" id="bke-6C-xa0"/>
+                        <outlet property="deviceLblValue" destination="dTn-ex-sCi" id="wJy-2a-j85"/>
                         <outlet property="lblPinCode" destination="UXu-y1-LkU" id="gMe-0N-5zO"/>
-                        <outlet property="lockButton" destination="lt2-MA-kIl" id="NqS-bI-oeV"/>
-                        <outlet property="lockLabel" destination="YRj-Ot-ELw" id="qYN-7a-Wfw"/>
+                        <outlet property="lockButton" destination="i1A-ac-VYA" id="3iG-gc-PBg"/>
+                        <outlet property="powerCableLblValue" destination="VvF-FK-ooS" id="qk2-8V-21p"/>
                         <outlet property="txtPinCode" destination="0MK-MG-z1U" id="mgk-2C-bSX"/>
-                        <outlet property="usbLabel" destination="VhO-Ld-5IB" id="pSO-RO-FaR"/>
+                        <outlet property="yameruImage" destination="S7s-78-3gP" id="ew9-LD-Hsc"/>
                     </connections>
                 </viewController>
                 <customObject id="pio-vL-uTT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="Axh-bZ-LgV"/>
             </objects>
             <point key="canvasLocation" x="33" y="348"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="light-bar-background" width="278.5" height="146"/>
+        <image name="yameru-logo-normal" width="256" height="258"/>
+        <namedColor name="value-color">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

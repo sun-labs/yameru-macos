@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "CustomButton",
+        "repositoryURL": "https://github.com/sindresorhus/CustomButton",
+        "state": {
+          "branch": "master",
+          "revision": "44e62c27061433fba1a9fc27c1c52ed509e11132",
+          "version": null
+        }
+      },
+      {
         "package": "Preferences",
         "repositoryURL": "https://github.com/sindresorhus/Preferences",
         "state": {

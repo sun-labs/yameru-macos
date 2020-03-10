@@ -19,6 +19,8 @@
 		3C85EB43240FBD58002D4416 /* PrefAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C85EB42240FBD58002D4416 /* PrefAdvancedView.xib */; };
 		3C85EB45240FC462002D4416 /* Pushover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85EB44240FC462002D4416 /* Pushover.swift */; };
 		3CB15383241672990053C98D /* MD5Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB15382241672990053C98D /* MD5Transformer.swift */; };
+		3CCCEA912417A74900A45CC9 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCEA902417A74900A45CC9 /* RoundButton.swift */; };
+		3CCCEA942417AA3800A45CC9 /* CustomButton in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCCEA932417AA3800A45CC9 /* CustomButton */; };
 		3CCEF7F5240FDFF500274B77 /* YameruTheProtector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEF7F4240FDFF500274B77 /* YameruTheProtector.swift */; };
 		3CD984C424113C3600046038 /* SwiftHash in Frameworks */ = {isa = PBXBuildFile; productRef = 3CD984C324113C3600046038 /* SwiftHash */; };
 		3CD984C62411422700046038 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD984C52411422700046038 /* ModalViewController.swift */; };
@@ -61,6 +63,7 @@
 		3C85EB42240FBD58002D4416 /* PrefAdvancedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrefAdvancedView.xib; sourceTree = "<group>"; };
 		3C85EB44240FC462002D4416 /* Pushover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pushover.swift; sourceTree = "<group>"; };
 		3CB15382241672990053C98D /* MD5Transformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5Transformer.swift; sourceTree = "<group>"; };
+		3CCCEA902417A74900A45CC9 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		3CCEF7F4240FDFF500274B77 /* YameruTheProtector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YameruTheProtector.swift; sourceTree = "<group>"; };
 		3CD984C52411422700046038 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		A82EED492405309C00C28684 /* Yameru.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yameru.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +91,7 @@
 				3C6FD5192411015A00977E8D /* CoreAudio.framework in Frameworks */,
 				3C56DABB240D14A000DA272C /* Preferences in Frameworks */,
 				3CD984C424113C3600046038 /* SwiftHash in Frameworks */,
+				3CCCEA942417AA3800A45CC9 /* CustomButton in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +163,7 @@
 				A82EED502405309E00C28684 /* Assets.xcassets */,
 				A82EED552405309E00C28684 /* Main.storyboard */,
 				3C47D43E2406753E00818F19 /* ViewController.swift */,
+				3CCCEA902417A74900A45CC9 /* RoundButton.swift */,
 				3CD984C52411422700046038 /* ModalViewController.swift */,
 				A82EED582405309E00C28684 /* Info.plist */,
 				A82EED592405309E00C28684 /* Yameru.entitlements */,
@@ -217,6 +222,7 @@
 			packageProductDependencies = (
 				3C56DABA240D14A000DA272C /* Preferences */,
 				3CD984C324113C3600046038 /* SwiftHash */,
+				3CCCEA932417AA3800A45CC9 /* CustomButton */,
 			);
 			productName = Yameru;
 			productReference = A82EED492405309C00C28684 /* Yameru.app */;
@@ -293,6 +299,7 @@
 			packageReferences = (
 				3C56DAB9240D14A000DA272C /* XCRemoteSwiftPackageReference "Preferences" */,
 				3CD984C224113C3600046038 /* XCRemoteSwiftPackageReference "SwiftHash" */,
+				3CCCEA922417AA3800A45CC9 /* XCRemoteSwiftPackageReference "CustomButton" */,
 			);
 			productRefGroup = A82EED4A2405309C00C28684 /* Products */;
 			projectDirPath = "";
@@ -346,6 +353,7 @@
 				3CD984C62411422700046038 /* ModalViewController.swift in Sources */,
 				3CB15383241672990053C98D /* MD5Transformer.swift in Sources */,
 				3C6FD5162411012400977E8D /* ISSound.swift in Sources */,
+				3CCCEA912417A74900A45CC9 /* RoundButton.swift in Sources */,
 				3C749EAE240D720500E1FA9A /* PrefGeneralVC.swift in Sources */,
 				3C85EB3E240FAD4C002D4416 /* SLPreferences.swift in Sources */,
 				3C85EB45240FC462002D4416 /* Pushover.swift in Sources */,
@@ -683,6 +691,14 @@
 				minimumVersion = 1.0.1;
 			};
 		};
+		3CCCEA922417AA3800A45CC9 /* XCRemoteSwiftPackageReference "CustomButton" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/CustomButton";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		3CD984C224113C3600046038 /* XCRemoteSwiftPackageReference "SwiftHash" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onmyway133/SwiftHash";
@@ -698,6 +714,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3C56DAB9240D14A000DA272C /* XCRemoteSwiftPackageReference "Preferences" */;
 			productName = Preferences;
+		};
+		3CCCEA932417AA3800A45CC9 /* CustomButton */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3CCCEA922417AA3800A45CC9 /* XCRemoteSwiftPackageReference "CustomButton" */;
+			productName = CustomButton;
 		};
 		3CD984C324113C3600046038 /* SwiftHash */ = {
 			isa = XCSwiftPackageProductDependency;

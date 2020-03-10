@@ -19,7 +19,6 @@ extension Array {
 
 class ViewController: NSViewController {
     
-    @IBOutlet weak var BatteryStatusLabel: NSTextField!
     @IBOutlet weak var lockLabel: NSTextField!
     @IBOutlet weak var lockButton: NSButton!
     @IBOutlet weak var txtPinCode: NSTextField!
@@ -36,23 +35,21 @@ class ViewController: NSViewController {
     var yameru: YameruTheProtector!
     var usbSnapshot: [String] = []
     var userVolume: String!
+    var curImage = "yameru-logo-normal"
     
     var usbAlarm = false
     var cableAlarm = false
     var cableActivated = false
     
-    @IBOutlet var usbLabel: NSTextView!
+    @IBOutlet weak var deviceLblValue: NSTextField!
+    @IBOutlet weak var powerCableLblValue: NSTextField!
+    @IBOutlet weak var yameruImage: NSImageView!
     
     required init?(coder aCoder: NSCoder) {
         super.init(coder: aCoder)
         self.battery = batteryStatus()
         self.timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
-        self.uiTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(fireUITimer), userInfo: nil, repeats: true)
         self.yameru = YameruTheProtector()
-    }
-    
-    @IBAction func disableLidSleepAction(_ sender: Any) {
-        self.yameru.disableLidSleep()
     }
     
     override func viewDidLoad() {
@@ -67,8 +64,8 @@ class ViewController: NSViewController {
         defaults.set(0, forKey: "noPinCode") //NOTE: need to be assigned one time
         txtPinCode.isHidden = true
         lblPinCode.isHidden = true
+        yameruImage.animates = true
         fireTimer()
-        fireUITimer()
     }
     
     func isKeyPresentInUserDefaults(key: String) -> Bool {
@@ -86,20 +83,6 @@ class ViewController: NSViewController {
     
     func snapshotUsbDevices () {
         self.usbSnapshot = self.getSnapshopUsbDevices()
-    }
-    
-    func updateUSBDevices () {
-        let nameList = self.yameru.getUSBDevices().map {
-            return $0["name"]!
-        }
-        setUsbDevicesUI(deviceIds: nameList)
-    }
-    func setUsbDevicesUI (deviceIds: [String]) {
-        let strNameList = deviceIds.joined(separator: "\n")
-        self.usbLabel.string = strNameList
-    }
-    @objc func fireUITimer () {
-        updateUSBDevices()
     }
     
     @objc func fireTimer () {
@@ -289,19 +272,46 @@ class ViewController: NSViewController {
         usbRoutine()
     }
     
+    func setYameruImage (name: String) {
+       if (self.curImage != name) {
+        self.curImage = name
+        self.yameruImage.image = NSImage(named: name)
+        }
+    }
+    
+    func setYameruGifImage (name: String) {
+        if (self.curImage != name) {
+            self.curImage = name
+            self.yameruImage.image = NSImage(data: NSDataAsset(name: name)!.data)
+        }
+    }
+    
     func updateUI () {
         updateCounter += 1
+        lockButton.title = isLocked
+            ? "Unlock Device"
+            : "Lock Device"
         let isSafe = !usbAlarm && !cableAlarm
         let isCharging = isConnected()
-        lockButton.isEnabled = isSafe
         if (isLocked) {
-            lockButton.title = "Unlock Device"
-            lockLabel.stringValue = isSafe ? "🔒" : "🚨"
+            if (isSafe) {
+                self.setYameruGifImage(name: "yameru-active")
+            } else {
+                self.setYameruGifImage(name: "yameru-alarm")
+            }
         } else {
-            lockButton.title = "Lock Device"
-            lockLabel.stringValue = isCharging ? "🔌" : "🔋"
+            powerCableLblValue.stringValue = isCharging ? "Ready" : "Not Connected"
+            self.setYameruImage(name: "yameru-logo-normal")
         }
-        BatteryStatusLabel.stringValue = "\(isCharging) (\(updateCounter))"
+//        lockButton.isEnabled = isSafe
+//        if (isLocked) {
+//
+//            lockLabel.stringValue = isSafe ? "🔒" : "🚨"
+//        } else {
+//            lockButton.title = "Lock Device"
+//            lockLabel.stringValue = isCharging ? "🔌" : "🔋"
+//        }
+        // BatteryStatusLabel.stringValue = "\(isCharging) (\(updateCounter))"
         
     }
 }
