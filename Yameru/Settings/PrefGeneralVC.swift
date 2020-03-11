@@ -129,11 +129,19 @@ class PrefGeneralVC: NSViewController, PreferencePane {
     @IBAction func clickSetSecure(_ sender: Any) {
         let response = yameru.sudoShell("echo it is done")
         if response != nil {
-            let currentState = SLPreferences.SecureMode
-            toggleStateSecure.state = NSControl.StateValue.on //TODO: make sure to check the state to ensure it loads correct content
-            SLPreferences.SecureMode = (currentState)!
+            if (toggleStateSecure.state.rawValue == 1) {
+                    toggleStateSecure.state = NSControl.StateValue.on
+            } else {
+                toggleStateSecure.state = NSControl.StateValue.off
+            }
+            SLPreferences.SecureMode = (toggleStateSecure.state.rawValue == 1)
+        } else {
+            if (toggleStateSecure.state.rawValue == 1) {
+                toggleStateSecure.state = NSControl.StateValue.off
+            } else {
+                toggleStateSecure.state = NSControl.StateValue.on
+            }
         }
-        
     }
     
     override func viewDidLoad() {
