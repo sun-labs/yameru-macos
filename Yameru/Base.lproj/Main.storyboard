@@ -407,6 +407,9 @@
                                     <allowedInputSourceLocales>
                                         <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                                     </allowedInputSourceLocales>
+                                    <connections>
+                                        <action selector="textFieldEnterClick:" target="BzT-5W-QSj" id="6VN-eB-hS9"/>
+                                    </connections>
                                 </secureTextFieldCell>
                             </secureTextField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UXu-y1-LkU">

@@ -93,6 +93,9 @@ class ViewController: NSViewController {
         updateUI()
     }
     
+    @IBAction func textFieldEnterClick(_ sender: NSSecureTextField) {
+        self.toggleLock ()
+    }
     func toggleLock () {
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
         if (!isLocked) {
