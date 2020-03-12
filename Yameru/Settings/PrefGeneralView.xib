@@ -109,7 +109,7 @@
                         </gridCell>
                         <gridCell row="HCu-n5-LYx" column="bDu-0l-gcS" headOfMergedCell="rrx-MD-0Wi" id="gcb-yZ-NT6"/>
                         <gridCell row="Yq4-A2-Dhe" column="FVs-La-vbr" id="VJa-M1-k2w">
-                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p2S-19-saD">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p2S-19-saD">
                                 <rect key="frame" x="18" y="121" width="96" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Alarm Features" id="CvL-yB-azE">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -118,23 +118,21 @@
                                 </textFieldCell>
                             </textField>
                         </gridCell>
-                        <gridCell row="Yq4-A2-Dhe" column="bDu-0l-gcS" id="NRG-gQ-l5E">
-                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OPK-qG-L13">
-                                <rect key="frame" x="120" y="120" width="233" height="18"/>
-                                <buttonCell key="cell" type="check" title="Disable USB inputs when activated" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="FJD-M5-M1u">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                        </gridCell>
+                        <gridCell row="Yq4-A2-Dhe" column="bDu-0l-gcS" id="NRG-gQ-l5E"/>
                         <gridCell row="s0v-hZ-1Dl" column="FVs-La-vbr" id="uVF-x0-SkF"/>
                         <gridCell row="s0v-hZ-1Dl" column="bDu-0l-gcS" id="YbK-Sk-gvd">
-                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xcn-TB-Ced">
+                            <button key="contentView" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcn-TB-Ced">
                                 <rect key="frame" x="120" y="83" width="272" height="18"/>
                                 <buttonCell key="cell" type="check" title="Sound the alarm if USB inputs are altered" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="VaF-88-cJf">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <binding destination="LRh-KN-z8w" name="value" keyPath="values.blockUsb" id="mcW-bJ-ON8"/>
+                                    </connections>
                                 </buttonCell>
+                                <connections>
+                                    <binding destination="LRh-KN-z8w" name="value" keyPath="values.usbCheckActivated" id="IeR-pg-iQj"/>
+                                </connections>
                             </button>
                         </gridCell>
                         <gridCell row="Pyg-zM-NIE" column="FVs-La-vbr" id="hpk-Sa-hym"/>

@@ -63,7 +63,7 @@ class ViewController: NSViewController {
         SLPreferences.prepareApplicationDir()
         let defaults  = UserDefaults.standard
         if !isKeyPresentInUserDefaults(key: "setupDone"){
-            defaults.set(false, forKey: "blockUsb")
+            defaults.set(true, forKey: "blockUsb")
             defaults.set("default", forKey: "alarmSound")
             defaults.set(0, forKey: "noPinCode")
             defaults.set(true, forKey: "secureMode")
@@ -110,7 +110,7 @@ class ViewController: NSViewController {
         txtPinCode.textColor = NSColor.red
         txtPinCode.wantsLayer = true
         txtPinCode.layer?.borderColor = NSColor.red.cgColor
-        txtPinCode.layer?.borderWidth = 3.0
+        txtPinCode.layer?.borderWidth = 2.0
         txtPinCode.layer?.cornerRadius = 0.0
     }
     
@@ -169,9 +169,7 @@ class ViewController: NSViewController {
         isLocked = true
             
         } else {
-            let borderWidth = CGFloat(2.0)
             if let pinCode = SLPreferences.PinCode{
-                print(pinCode)
                 let enteredPin = txtPinCode.stringValue
                 if !pinCode.isEmpty {
                     if (!enteredPin.isEmpty) {
@@ -300,7 +298,9 @@ class ViewController: NSViewController {
     
     func safetyRoutine () {
         cableRoutine()
-        usbRoutine()
+        if (SLPreferences.USBCheckActivated!){
+            usbRoutine()
+        }
     }
     
     func setYameruImage (name: String) {
@@ -323,6 +323,7 @@ class ViewController: NSViewController {
             ? "Unlock Device"
             : "Lock Device"
         let isSafe = !usbAlarm && !cableAlarm
+        let usbLock = SLPreferences.USBCheckActivated!
         let isCharging = isConnected()
         if (isLocked) {
             powerCableLblValue.stringValue = cableActivated
@@ -330,9 +331,11 @@ class ViewController: NSViewController {
                     ? "🚨 Disconnected"
                     : "🔒 Armed"
                 : "⚠️ Not Activated"
-            deviceLblValue.stringValue = usbAlarm
-                ? "🚨 Danger"
-                : "🔒 Armed"
+            deviceLblValue.stringValue = usbLock
+                ? usbAlarm
+                    ? "🚨 Danger"
+                    : "🔒 Armed"
+                : "⚠️ Not Activated"
             if (isSafe) {
                 self.setYameruGifImage(name: "yameru-active")
             } else {
@@ -342,7 +345,7 @@ class ViewController: NSViewController {
             powerCableLblValue.stringValue = isCharging
                 ? "Ready"
                 : "⚠️ Not Connected"
-            deviceLblValue.stringValue = usbActivated
+            deviceLblValue.stringValue = usbLock
                 ? "Ready"
                 : "⚠️ Not Activated"
             self.setYameruImage(name: "yameru-logo-normal")
