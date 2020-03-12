@@ -169,6 +169,7 @@ class ViewController: NSViewController {
         isLocked = true
             
         } else {
+            let borderWidth = CGFloat(2.0)
             if let pinCode = SLPreferences.PinCode{
                 print(pinCode)
                 let enteredPin = txtPinCode.stringValue
