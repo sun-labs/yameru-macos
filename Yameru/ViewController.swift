@@ -158,14 +158,22 @@ class ViewController: NSViewController {
                     if (!enteredPin.isEmpty) {
                         if MD5(enteredPin) == pinCode {
                             unlock()
+                            txtPinCode.layer?.borderWidth = 0
                         } else {
                             txtPinCode.textColor = NSColor.red
+                            txtPinCode.wantsLayer = true
+                            txtPinCode.layer?.borderColor = NSColor.red.cgColor
+                            txtPinCode.layer?.borderWidth = 3.0
+                            txtPinCode.layer?.cornerRadius = 0.0
+                            
                         }
                     }
                 } else {
+                    txtPinCode.layer?.borderWidth = 0
                     unlock()
                 }
             } else {
+                txtPinCode.layer?.borderWidth = 0
                 unlock()
             }
             self.yameru.setMacVolume(to: self.userVolume)
