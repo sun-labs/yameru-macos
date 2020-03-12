@@ -56,7 +56,7 @@
                                 <rect key="frame" x="120" y="250" width="139" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="Default" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="czF-UK-3wK" id="4Fx-cg-Gdh">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="im4-Cm-EOB">
                                         <items>
                                             <menuItem title="Default" state="on" id="czF-UK-3wK">

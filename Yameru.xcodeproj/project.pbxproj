@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C3A160F2418F6E2003CBC00 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FD5182411015A00977E8D /* CoreAudio.framework */; };
-		3C3A16132419018C003CBC00 /* SetupWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3A16122419018C003CBC00 /* SetupWindow.xib */; };
 		3C3A161524190292003CBC00 /* SetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3A161424190292003CBC00 /* SetupVC.swift */; };
-		3C3A1617241904DD003CBC00 /* SetupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3A1616241904DD003CBC00 /* SetupView.xib */; };
 		3C47D43F2406753E00818F19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47D43E2406753E00818F19 /* ViewController.swift */; };
 		3C47D44124068A0300818F19 /* anime-scream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C47D44024068A0300818F19 /* anime-scream.mp3 */; };
 		3C56DABB240D14A000DA272C /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 3C56DABA240D14A000DA272C /* Preferences */; };
@@ -54,9 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3C3A16122419018C003CBC00 /* SetupWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupWindow.xib; sourceTree = "<group>"; };
 		3C3A161424190292003CBC00 /* SetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupVC.swift; sourceTree = "<group>"; };
-		3C3A1616241904DD003CBC00 /* SetupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupView.xib; sourceTree = "<group>"; };
 		3C47D43E2406753E00818F19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3C47D44024068A0300818F19 /* anime-scream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "anime-scream.mp3"; sourceTree = "<group>"; };
 		3C6FD5152411012400977E8D /* ISSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISSound.swift; sourceTree = "<group>"; };
@@ -166,8 +162,6 @@
 				A82EED4E2405309C00C28684 /* ContentView.swift */,
 				A82EED502405309E00C28684 /* Assets.xcassets */,
 				A82EED552405309E00C28684 /* Main.storyboard */,
-				3C3A16122419018C003CBC00 /* SetupWindow.xib */,
-				3C3A1616241904DD003CBC00 /* SetupView.xib */,
 				3C3A161424190292003CBC00 /* SetupVC.swift */,
 				3C47D43E2406753E00818F19 /* ViewController.swift */,
 				3CCCEA902417A74900A45CC9 /* RoundButton.swift */,
@@ -323,9 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C3A16132419018C003CBC00 /* SetupWindow.xib in Resources */,
 				3C47D44124068A0300818F19 /* anime-scream.mp3 in Resources */,
-				3C3A1617241904DD003CBC00 /* SetupView.xib in Resources */,
 				A82EED572405309E00C28684 /* Main.storyboard in Resources */,
 				A82EED542405309E00C28684 /* Preview Assets.xcassets in Resources */,
 				A82EED512405309E00C28684 /* Assets.xcassets in Resources */,
