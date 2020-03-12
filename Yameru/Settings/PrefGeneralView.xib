@@ -110,7 +110,7 @@
                         <gridCell row="HCu-n5-LYx" column="bDu-0l-gcS" headOfMergedCell="rrx-MD-0Wi" id="gcb-yZ-NT6"/>
                         <gridCell row="Yq4-A2-Dhe" column="FVs-La-vbr" id="VJa-M1-k2w">
                             <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p2S-19-saD">
-                                <rect key="frame" x="18" y="121" width="96" height="16"/>
+                                <rect key="frame" x="18" y="107" width="96" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Alarm Features" id="CvL-yB-azE">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -122,13 +122,10 @@
                         <gridCell row="s0v-hZ-1Dl" column="FVs-La-vbr" id="uVF-x0-SkF"/>
                         <gridCell row="s0v-hZ-1Dl" column="bDu-0l-gcS" id="YbK-Sk-gvd">
                             <button key="contentView" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcn-TB-Ced">
-                                <rect key="frame" x="120" y="83" width="272" height="18"/>
+                                <rect key="frame" x="120" y="68" width="272" height="18"/>
                                 <buttonCell key="cell" type="check" title="Sound the alarm if USB inputs are altered" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="VaF-88-cJf">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
-                                    <connections>
-                                        <binding destination="LRh-KN-z8w" name="value" keyPath="values.blockUsb" id="mcW-bJ-ON8"/>
-                                    </connections>
                                 </buttonCell>
                                 <connections>
                                     <binding destination="LRh-KN-z8w" name="value" keyPath="values.usbCheckActivated" id="nFR-xv-jiQ"/>

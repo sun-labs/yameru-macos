@@ -63,7 +63,7 @@ class ViewController: NSViewController {
         SLPreferences.prepareApplicationDir()
         let defaults  = UserDefaults.standard
         if !isKeyPresentInUserDefaults(key: "setupDone"){
-            defaults.set(true, forKey: "blockUsb")
+            defaults.set(true, forKey: "usbCheckActivated")
             defaults.set("default", forKey: "alarmSound")
             defaults.set(0, forKey: "noPinCode")
             defaults.set(true, forKey: "secureMode")
