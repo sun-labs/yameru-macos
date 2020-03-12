@@ -127,7 +127,6 @@ class ViewController: NSViewController {
         // alarm
         let defaults  = UserDefaults.standard.string(forKey: "alarmSound")!
         var url = URL(fileURLWithPath: defaults)
-        print(defaults)
         if (defaults == "default") {
             url = Bundle.main.url(forResource: "anime-scream", withExtension: "mp3")!
         }

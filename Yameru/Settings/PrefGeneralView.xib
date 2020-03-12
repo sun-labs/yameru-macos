@@ -131,7 +131,7 @@
                                     </connections>
                                 </buttonCell>
                                 <connections>
-                                    <binding destination="LRh-KN-z8w" name="value" keyPath="values.usbCheckActivated" id="IeR-pg-iQj"/>
+                                    <binding destination="LRh-KN-z8w" name="value" keyPath="values.usbCheckActivated" id="nFR-xv-jiQ"/>
                                 </connections>
                             </button>
                         </gridCell>
