@@ -1,3 +1,3 @@
 # Yameru
 
-![Yamaru Cat](https://media.giphy.com/media/PlUTxb577QNNnNdRoX/giphy.gif)
+![Yamaru Cat](https://sunlabs.se/assets/visualizations/Yameru.gif)
