@@ -167,6 +167,12 @@ class ViewController: NSViewController {
                             txtPinCode.layer?.cornerRadius = 0.0
                             
                         }
+                    } else {
+                        txtPinCode.textColor = NSColor.red
+                        txtPinCode.wantsLayer = true
+                        txtPinCode.layer?.borderColor = NSColor.red.cgColor
+                        txtPinCode.layer?.borderWidth = 3.0
+                        txtPinCode.layer?.cornerRadius = 0.0
                     }
                 } else {
                     txtPinCode.layer?.borderWidth = 0
