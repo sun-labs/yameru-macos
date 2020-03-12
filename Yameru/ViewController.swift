@@ -152,6 +152,7 @@ class ViewController: NSViewController {
         isLocked = true
             
         } else {
+            let borderWidth = CGFloat(2.0)
             if let pinCode = SLPreferences.PinCode{
                 let enteredPin = txtPinCode.stringValue
                 if !pinCode.isEmpty {
@@ -161,18 +162,14 @@ class ViewController: NSViewController {
                             txtPinCode.layer?.borderWidth = 0
                         } else {
                             txtPinCode.textColor = NSColor.red
-                            txtPinCode.wantsLayer = true
                             txtPinCode.layer?.borderColor = NSColor.red.cgColor
-                            txtPinCode.layer?.borderWidth = 3.0
-                            txtPinCode.layer?.cornerRadius = 0.0
+                            txtPinCode.layer?.borderWidth = borderWidth
                             
                         }
                     } else {
                         txtPinCode.textColor = NSColor.red
-                        txtPinCode.wantsLayer = true
                         txtPinCode.layer?.borderColor = NSColor.red.cgColor
-                        txtPinCode.layer?.borderWidth = 3.0
-                        txtPinCode.layer?.cornerRadius = 0.0
+                        txtPinCode.layer?.borderWidth = borderWidth
                     }
                 } else {
                     txtPinCode.layer?.borderWidth = 0
