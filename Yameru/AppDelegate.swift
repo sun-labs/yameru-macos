@@ -9,7 +9,6 @@
 import Cocoa
 import SwiftUI
 import Preferences
-import CustomButton
 
 extension PreferencePane.Identifier {
     static let general = Identifier("general")

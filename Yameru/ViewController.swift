@@ -19,7 +19,6 @@ extension Array {
 
 class ViewController: NSViewController {
     
-    @IBOutlet weak var lockLabel: NSTextField!
     @IBOutlet weak var lockButton: NSButton!
     @IBOutlet weak var txtPinCode: NSTextField!
     @IBOutlet weak var lblPinCode: NSTextField!
@@ -53,17 +52,22 @@ class ViewController: NSViewController {
         self.yameru = YameruTheProtector()
     }
     
+    override func viewDidAppear() {
+        if !isKeyPresentInUserDefaults(key: "setupDone") {
+            performSegue(withIdentifier: "setupSegue", sender: self)
+            UserDefaults.standard.set(true, forKey: "setupDone")
+        }
+    }
+    
     override func viewDidLoad() {
         SLPreferences.prepareApplicationDir()
         let defaults  = UserDefaults.standard
         if !isKeyPresentInUserDefaults(key: "setupDone"){
-            defaults.set(true, forKey: "setupDone")
             defaults.set(false, forKey: "blockUsb")
             defaults.set("default", forKey: "alarmSound")
             defaults.set(0, forKey: "noPinCode")
             defaults.set(true, forKey: "secureMode")
         }
-        defaults.set(0, forKey: "noPinCode") //NOTE: need to be assigned one time
         txtPinCode.isHidden = true
         lblPinCode.isHidden = true
         yameruImage.animates = true
@@ -97,6 +101,19 @@ class ViewController: NSViewController {
     @IBAction func textFieldEnterClick(_ sender: NSSecureTextField) {
         self.toggleLock ()
     }
+    func hideError() {
+        txtPinCode.layer?.borderWidth = 0
+        txtPinCode.textColor = NSColor.black
+        txtPinCode.stringValue = ""
+    }
+    func showError () {
+        txtPinCode.textColor = NSColor.red
+        txtPinCode.wantsLayer = true
+        txtPinCode.layer?.borderColor = NSColor.red.cgColor
+        txtPinCode.layer?.borderWidth = 3.0
+        txtPinCode.layer?.cornerRadius = 0.0
+    }
+    
     func toggleLock () {
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
         if (!isLocked) {
@@ -153,33 +170,26 @@ class ViewController: NSViewController {
             
         } else {
             if let pinCode = SLPreferences.PinCode{
+                print(pinCode)
                 let enteredPin = txtPinCode.stringValue
                 if !pinCode.isEmpty {
                     if (!enteredPin.isEmpty) {
                         if MD5(enteredPin) == pinCode {
                             unlock()
-                            txtPinCode.layer?.borderWidth = 0
+                            hideError()
                         } else {
-                            txtPinCode.textColor = NSColor.red
-                            txtPinCode.wantsLayer = true
-                            txtPinCode.layer?.borderColor = NSColor.red.cgColor
-                            txtPinCode.layer?.borderWidth = 3.0
-                            txtPinCode.layer?.cornerRadius = 0.0
+                            showError()
                             
                         }
                     } else {
-                        txtPinCode.textColor = NSColor.red
-                        txtPinCode.wantsLayer = true
-                        txtPinCode.layer?.borderColor = NSColor.red.cgColor
-                        txtPinCode.layer?.borderWidth = 3.0
-                        txtPinCode.layer?.cornerRadius = 0.0
+                        showError()
                     }
                 } else {
-                    txtPinCode.layer?.borderWidth = 0
+                    hideError()
                     unlock()
                 }
             } else {
-                txtPinCode.layer?.borderWidth = 0
+                hideError()
                 unlock()
             }
             self.yameru.setMacVolume(to: self.userVolume)
@@ -188,7 +198,7 @@ class ViewController: NSViewController {
     func unlock () {
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
         // run sudo related commands
-        if (SLPreferences.SecureMode!) {
+        if (SLPreferences.SecureMode! == true) {
             let response = self.yameru.enableLidSleep()
             if (response == nil) {
                 return
@@ -199,8 +209,6 @@ class ViewController: NSViewController {
         lblPinCode.isHidden = true
         appDelegate.enableProperties()
         self.view.window!.styleMask.insert(.closable)
-        txtPinCode.textColor = NSColor.black
-        txtPinCode.stringValue = ""
     }
     @IBAction func lockButtonClick(_ sender: Any) {
         toggleLock()
@@ -338,15 +346,6 @@ class ViewController: NSViewController {
                 : "⚠️ Not Activated"
             self.setYameruImage(name: "yameru-logo-normal")
         }
-//        lockButton.isEnabled = isSafe
-//        if (isLocked) {
-//
-//            lockLabel.stringValue = isSafe ? "🔒" : "🚨"
-//        } else {
-//            lockButton.title = "Lock Device"
-//            lockLabel.stringValue = isCharging ? "🔌" : "🔋"
-//        }
-        // BatteryStatusLabel.stringValue = "\(isCharging) (\(updateCounter))"
         
     }
 }

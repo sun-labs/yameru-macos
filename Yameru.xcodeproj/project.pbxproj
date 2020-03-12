@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C3A160F2418F6E2003CBC00 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FD5182411015A00977E8D /* CoreAudio.framework */; };
+		3C3A16132419018C003CBC00 /* SetupWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3A16122419018C003CBC00 /* SetupWindow.xib */; };
+		3C3A161524190292003CBC00 /* SetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3A161424190292003CBC00 /* SetupVC.swift */; };
+		3C3A1617241904DD003CBC00 /* SetupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C3A1616241904DD003CBC00 /* SetupView.xib */; };
 		3C47D43F2406753E00818F19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47D43E2406753E00818F19 /* ViewController.swift */; };
 		3C47D44124068A0300818F19 /* anime-scream.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3C47D44024068A0300818F19 /* anime-scream.mp3 */; };
 		3C56DABB240D14A000DA272C /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 3C56DABA240D14A000DA272C /* Preferences */; };
 		3C6FD5162411012400977E8D /* ISSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6FD5152411012400977E8D /* ISSound.swift */; };
-		3C6FD5192411015A00977E8D /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FD5182411015A00977E8D /* CoreAudio.framework */; };
 		3C749EAC240D71E500E1FA9A /* PrefGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C749EAB240D71E500E1FA9A /* PrefGeneralView.xib */; };
 		3C749EAE240D720500E1FA9A /* PrefGeneralVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C749EAD240D720500E1FA9A /* PrefGeneralVC.swift */; };
 		3C85EB3E240FAD4C002D4416 /* SLPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85EB3D240FAD4C002D4416 /* SLPreferences.swift */; };
@@ -20,7 +23,6 @@
 		3C85EB45240FC462002D4416 /* Pushover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85EB44240FC462002D4416 /* Pushover.swift */; };
 		3CB15383241672990053C98D /* MD5Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB15382241672990053C98D /* MD5Transformer.swift */; };
 		3CCCEA912417A74900A45CC9 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCCEA902417A74900A45CC9 /* RoundButton.swift */; };
-		3CCCEA942417AA3800A45CC9 /* CustomButton in Frameworks */ = {isa = PBXBuildFile; productRef = 3CCCEA932417AA3800A45CC9 /* CustomButton */; };
 		3CCEF7F5240FDFF500274B77 /* YameruTheProtector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCEF7F4240FDFF500274B77 /* YameruTheProtector.swift */; };
 		3CD984C424113C3600046038 /* SwiftHash in Frameworks */ = {isa = PBXBuildFile; productRef = 3CD984C324113C3600046038 /* SwiftHash */; };
 		3CD984C62411422700046038 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD984C52411422700046038 /* ModalViewController.swift */; };
@@ -52,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C3A16122419018C003CBC00 /* SetupWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupWindow.xib; sourceTree = "<group>"; };
+		3C3A161424190292003CBC00 /* SetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupVC.swift; sourceTree = "<group>"; };
+		3C3A1616241904DD003CBC00 /* SetupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupView.xib; sourceTree = "<group>"; };
 		3C47D43E2406753E00818F19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3C47D44024068A0300818F19 /* anime-scream.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "anime-scream.mp3"; sourceTree = "<group>"; };
 		3C6FD5152411012400977E8D /* ISSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISSound.swift; sourceTree = "<group>"; };
@@ -88,10 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C6FD5192411015A00977E8D /* CoreAudio.framework in Frameworks */,
+				3C3A160F2418F6E2003CBC00 /* CoreAudio.framework in Frameworks */,
 				3C56DABB240D14A000DA272C /* Preferences in Frameworks */,
 				3CD984C424113C3600046038 /* SwiftHash in Frameworks */,
-				3CCCEA942417AA3800A45CC9 /* CustomButton in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +166,9 @@
 				A82EED4E2405309C00C28684 /* ContentView.swift */,
 				A82EED502405309E00C28684 /* Assets.xcassets */,
 				A82EED552405309E00C28684 /* Main.storyboard */,
+				3C3A16122419018C003CBC00 /* SetupWindow.xib */,
+				3C3A1616241904DD003CBC00 /* SetupView.xib */,
+				3C3A161424190292003CBC00 /* SetupVC.swift */,
 				3C47D43E2406753E00818F19 /* ViewController.swift */,
 				3CCCEA902417A74900A45CC9 /* RoundButton.swift */,
 				3CD984C52411422700046038 /* ModalViewController.swift */,
@@ -222,7 +229,6 @@
 			packageProductDependencies = (
 				3C56DABA240D14A000DA272C /* Preferences */,
 				3CD984C324113C3600046038 /* SwiftHash */,
-				3CCCEA932417AA3800A45CC9 /* CustomButton */,
 			);
 			productName = Yameru;
 			productReference = A82EED492405309C00C28684 /* Yameru.app */;
@@ -317,7 +323,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3A16132419018C003CBC00 /* SetupWindow.xib in Resources */,
 				3C47D44124068A0300818F19 /* anime-scream.mp3 in Resources */,
+				3C3A1617241904DD003CBC00 /* SetupView.xib in Resources */,
 				A82EED572405309E00C28684 /* Main.storyboard in Resources */,
 				A82EED542405309E00C28684 /* Preview Assets.xcassets in Resources */,
 				A82EED512405309E00C28684 /* Assets.xcassets in Resources */,
@@ -355,6 +363,7 @@
 				3C6FD5162411012400977E8D /* ISSound.swift in Sources */,
 				3CCCEA912417A74900A45CC9 /* RoundButton.swift in Sources */,
 				3C749EAE240D720500E1FA9A /* PrefGeneralVC.swift in Sources */,
+				3C3A161524190292003CBC00 /* SetupVC.swift in Sources */,
 				3C85EB3E240FAD4C002D4416 /* SLPreferences.swift in Sources */,
 				3C85EB45240FC462002D4416 /* Pushover.swift in Sources */,
 				3C47D43F2406753E00818F19 /* ViewController.swift in Sources */,
@@ -714,11 +723,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3C56DAB9240D14A000DA272C /* XCRemoteSwiftPackageReference "Preferences" */;
 			productName = Preferences;
-		};
-		3CCCEA932417AA3800A45CC9 /* CustomButton */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3CCCEA922417AA3800A45CC9 /* XCRemoteSwiftPackageReference "CustomButton" */;
-			productName = CustomButton;
 		};
 		3CD984C324113C3600046038 /* SwiftHash */ = {
 			isa = XCSwiftPackageProductDependency;
