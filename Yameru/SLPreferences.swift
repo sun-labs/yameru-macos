@@ -30,9 +30,7 @@ class SLPreferences {
     
     static var USBCheckActivated: Bool? {
         get { return UserDefaults.standard.bool(forKey: "usbCheckActivated") }
-        set {
-            UserDefaults.standard.set(newValue, forKey: "usbCheckActivated")
-        }
+        set { UserDefaults.standard.set(newValue, forKey: "usbCheckActivated") }
     }
     
     static var SecureMode: Bool? {
