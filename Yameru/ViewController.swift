@@ -61,8 +61,8 @@ class ViewController: NSViewController {
             defaults.set(false, forKey: "blockUsb")
             defaults.set("default", forKey: "alarmSound")
             defaults.set(0, forKey: "noPinCode")
+            defaults.set(true, forKey: "secureMode")
         }
-        defaults.set(true, forKey: "secureMode")
         defaults.set(0, forKey: "noPinCode") //NOTE: need to be assigned one time
         txtPinCode.isHidden = true
         lblPinCode.isHidden = true
