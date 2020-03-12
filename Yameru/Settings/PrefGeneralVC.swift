@@ -125,21 +125,24 @@ class PrefGeneralVC: NSViewController, PreferencePane {
         }
         
     }
+    
     @IBOutlet weak var toggleStateSecure: NSButton!
     @IBAction func clickSetSecure(_ sender: Any) {
         let response = yameru.sudoShell("echo it is done")
         if response != nil {
-            if (toggleStateSecure.state.rawValue == 1) {
-                    toggleStateSecure.state = NSControl.StateValue.on
-            } else {
+            if (SLPreferences.SecureMode!) {
                 toggleStateSecure.state = NSControl.StateValue.off
-            }
-            SLPreferences.SecureMode = (toggleStateSecure.state.rawValue == 1)
-        } else {
-            if (toggleStateSecure.state.rawValue == 1) {
-                toggleStateSecure.state = NSControl.StateValue.off
+                SLPreferences.SecureMode = false
             } else {
                 toggleStateSecure.state = NSControl.StateValue.on
+                SLPreferences.SecureMode = true
+            }
+            
+        } else {
+            if (SLPreferences.SecureMode!) {
+                toggleStateSecure.state = NSControl.StateValue.on
+            } else {
+                toggleStateSecure.state = NSControl.StateValue.off
             }
         }
     }
@@ -153,6 +156,12 @@ class PrefGeneralVC: NSViewController, PreferencePane {
         } else {
             self.setAlarmSound(for: URL(fileURLWithPath: defaults!))
         }
+        
+        if (SLPreferences.SecureMode!) {
+           toggleStateSecure.state = NSControl.StateValue.on
+       } else {
+           toggleStateSecure.state = NSControl.StateValue.off
+       }
         // Setup stuff here
     }
     
