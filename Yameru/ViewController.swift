@@ -17,7 +17,7 @@ extension Array {
     }
 }
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSWindowDelegate {
     
     @IBOutlet weak var lockButton: NSButton!
     @IBOutlet weak var txtPinCode: NSTextField!
@@ -58,7 +58,7 @@ class ViewController: NSViewController {
             UserDefaults.standard.set(true, forKey: "setupDone")
         }
     }
-    
+        
     override func viewDidLoad() {
         SLPreferences.prepareApplicationDir()
         let defaults  = UserDefaults.standard
