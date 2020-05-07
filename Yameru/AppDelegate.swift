@@ -18,9 +18,7 @@ extension PreferencePane.Identifier {
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return true
-    }
+
 
     @IBOutlet var menuPropItem: NSMenuItem!
     var window: NSWindow!

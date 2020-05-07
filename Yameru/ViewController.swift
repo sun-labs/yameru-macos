@@ -68,6 +68,7 @@ class ViewController: NSViewController, NSWindowDelegate {
             defaults.set(0, forKey: "noPinCode")
             defaults.set(true, forKey: "secureMode")
         }
+        SLPreferences.SecureMode = false
         txtPinCode.isHidden = true
         lblPinCode.isHidden = true
         yameruImage.animates = true

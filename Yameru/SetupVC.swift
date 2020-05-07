@@ -13,7 +13,7 @@ class SetupVC : NSViewController {
     @IBOutlet weak var txtPinCode: NSTextField!
     @IBOutlet weak var checkSecureMode: NSButton!
     @IBOutlet weak var lblErrPinCode: NSTextField!
-    
+        
     func showError (message: String? = nil) {
         if let msg = message {
             lblErrPinCode.stringValue = msg
