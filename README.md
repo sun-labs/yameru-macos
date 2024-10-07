@@ -9,7 +9,21 @@ Protect your computer from <a href="https://shop.hak5.org/products/usb-rubber-du
 
 ---
 
-*Only available for Macs*
 - Protect your computer from "hotplug attacks", such as the Rubber Ducky
 - Sound an alarm when power source is disconnected from your computer
 - Prevent computer from sleeping
+- Support for Pushover notifications
+
+*Only available for Macs*
+
+---
+
+![UI of Yameru. Button with text "Lock Device".](/docs/screen1.png)
+
+![UI of Yameru. Input field with text "Enter pin code". Button with text "Unlock Device".](/docs/screen6.png)
+
+![UI for Settings of Yameru. Two tabs, General and Advanced. General Active. Change Alarm Sound. Sound alarm if inputs are altered. Set pin code.](/docs/screen8.png)
+
+---
+
+Made with <3
