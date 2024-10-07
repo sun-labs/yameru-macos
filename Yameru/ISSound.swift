@@ -126,7 +126,7 @@ extension NSSound {
             return 0.0
         }        //device not found: return 0
         
-        theAddress = AudioObjectPropertyAddress.init(mSelector: kAudioHardwareServiceDeviceProperty_VirtualMasterVolume, mScope: kAudioDevicePropertyScopeOutput, mElement: kAudioObjectPropertyElementMaster)
+        theAddress = AudioObjectPropertyAddress.init(mSelector: kAudioHardwareServiceDeviceProperty_VirtualMainVolume, mScope: kAudioDevicePropertyScopeOutput, mElement: kAudioObjectPropertyElementMaster)
         
         
         //be sure that the default device has the volume property
@@ -198,7 +198,7 @@ extension NSSound {
             }
             else {canMute = false}
         } else {
-            theAddress.mSelector = kAudioHardwareServiceDeviceProperty_VirtualMasterVolume
+            theAddress.mSelector = kAudioHardwareServiceDeviceProperty_VirtualMainVolume
         }
         
         // **** now manage the volume following the what we found ****
