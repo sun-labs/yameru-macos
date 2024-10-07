@@ -14,16 +14,16 @@ Protect your computer from <a href="https://shop.hak5.org/products/usb-rubber-du
 - Prevent computer from sleeping
 - Support for Pushover notifications
 
-*Only available for Macs*
+> Only available for Macs
 
 ---
 
-![UI of Yameru. Button with text "Lock Device".](/docs/screen1.png)
+<div align="center">
+<img src="docs/screen1.png" alt="UI of Yameru. Button with text 'Lock Device'" />
+<img src="docs/screen6.png" alt="UI of Yameru. Input field with text 'Enter pin code'. Button with text 'Unlock Device'." />
 
-![UI of Yameru. Input field with text "Enter pin code". Button with text "Unlock Device".](/docs/screen6.png)
+<img src="docs/screen8.png" alt="UI for Settings of Yameru. Two tabs, General and Advanced. General Active. Change Alarm Sound. Sound alarm if inputs are altered. Set pin code." />
 
-![UI for Settings of Yameru. Two tabs, General and Advanced. General Active. Change Alarm Sound. Sound alarm if inputs are altered. Set pin code.](/docs/screen8.png)
+</div>
 
 ---
-
-Made with <3
